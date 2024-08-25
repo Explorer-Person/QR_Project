@@ -1,4 +1,3 @@
-// mysql2-migrations/migrations/1667598634512_create_user_table.js
 module.exports = {
     name: 'Create User Table',
     up: (conn, cb) => {
