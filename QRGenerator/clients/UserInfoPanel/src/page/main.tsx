@@ -12,7 +12,7 @@ function App() {
     const fetchData = async () => {
       try {
         const endpoint = window.location.pathname;
-        const response = await fetch(`http://localhost:3000/api/user/getOne${endpoint}`, {
+        const response = await fetch(`${import.meta.env.VITE_ENV_SERVER_URL}/api/user/getOne${endpoint}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
