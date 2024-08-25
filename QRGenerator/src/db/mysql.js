@@ -58,7 +58,7 @@ async function executeQuery(query, parameters) {
 
 
 (async () => {
-    const { Migration } = await import('mysql2-migrations');
+    const Migration = await import('mysql2-migrations');
     // Use Migration as needed
     const db_query = new Migration();
     db_query.conn = pool;
