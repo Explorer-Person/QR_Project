@@ -18,9 +18,7 @@ class AdminQuery {
   addOne = async (qrPath, userInfo) => {
     await userModel(); // Ensure this is an async function
     const id = uuidv4();
-    const formattedUrl = decodeURI(userInfo.info.targetUrl)
-      .split(" ")
-      .join(`\${id}`);
+    const formattedUrl = `${userInfo.info.targetUrl}/${id}`
     console.log(formattedUrl);
     const query = `INSERT INTO user 
       (name, surname, phone, role, email, 

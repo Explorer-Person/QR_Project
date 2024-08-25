@@ -16,28 +16,24 @@ app.use(helmet);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 // API routes
 app.use("/api", routes);
 
+// Serve static files for UserInfoPanel at /user
+app.use('/user', express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
 
-// Serve static files for AdminPanel
+// Serve static files for AdminPanel at /
 app.use('/', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
-// Serve static files for UserInfoPanel
-app.use('/user/', express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
 
-// Serve the UserInfoPanel app on the root URL
+// Serve the UserInfoPanel app on /user/*
 app.get('/user/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/UserInfoPanel/dist', 'index.html'));
 });
 
-// Serve the AdminPanel app on the /admin URL
+// Serve the AdminPanel app on root URL /
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
 });
-
-
-
 
 // Global error handler middleware
 app.use((err, req, res, next) => {
@@ -49,6 +45,5 @@ app.use((err, req, res, next) => {
       ...(process.env.NODE_ENV === "development" && { stack: err.stack }), // Show stack trace only in development mode
     });
 });
-  
 
 app.listen(PORT, () => console.log(`App is listening to Port: ${PORT}`));
