@@ -21,14 +21,16 @@ app.use(express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
 app.use(express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
 
 
+// API routes
 app.use("/api", routes);
 
-// Serve the React app on the root URL
+// Serve the UserInfoPanel app on the root URL
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/UserInfoPanel/dist', 'index.html'));
 });
-// Serve the React app on the root URL
-app.get('/admin', (req, res) => {
+
+// Serve the AdminPanel app on the /admin URL
+app.get('/admin/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
 });
 
