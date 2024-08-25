@@ -20,18 +20,18 @@ app.use(express.json());
 app.use("/api", routes);
 
 // Serve static files for UserInfoPanel at /user
-app.use('/user', express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
+app.use('/public', express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
 
 // Serve static files for AdminPanel at /
-app.use('/admin', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
+app.use('/mnt', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
 
 // Serve the UserInfoPanel app on /user/*
-app.get('/user/*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/UserInfoPanel/dist', 'index.html'));
 });
 
 // Serve the AdminPanel app on /admin/*
-app.get('/admin/*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
 });
 
