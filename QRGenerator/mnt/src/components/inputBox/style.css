@@ -1,0 +1,93 @@
+.input-box {
+  max-width: 75%;
+  max-height: 500px;
+  margin: auto;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.form-group {
+  position: relative;
+  width: 30%;
+  margin-bottom: 15px;
+}
+
+.form-control {
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #aaa;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #3e8e41;
+}
+
+.input-box .form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.input-box .form-control[type="text"],
+.input-box .form-control[type="email"] {
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.input-box .form-control[type="file"] {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+.form-group input{
+  height: 50px;
+}
+
+.input-box select {
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.input-box button[type="submit"] {
+  margin: 20px 20px;
+}
