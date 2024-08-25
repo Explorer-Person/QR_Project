@@ -33,7 +33,7 @@ function App() {
     };
 
     fetchData();
-  }, [])
+  }, [window.location.pathname])
   const dateFormatter = (date: string) =>{
     const formattedDate = date.split('T')[0];
     return formattedDate

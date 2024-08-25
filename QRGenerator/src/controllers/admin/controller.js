@@ -1,7 +1,6 @@
 const { sendResponse } = require("../../handlers/response");
 const { AdminQuery } = require("@queries");
 const { qrCreator, dataFormatter } = require("@utils");
-const path = require("path");
 const fs = require("node:fs");
 
 
@@ -12,7 +11,8 @@ exports.addUser = async (req, res, next) => {
     console.log(body, req.file);
     const file = req.file ? JSON.stringify(req.file && { filePath: req.file.path, fileName: req.file.filename }) : null;
     const jsonData = req.file ? JSON.parse(body.data) : body.data; // Parse the JSON data from the body
-        
+    
+    
     const data = {
             ...jsonData,
             file: file
@@ -29,21 +29,10 @@ exports.addUser = async (req, res, next) => {
         400
       );
     }
-
-    const qrPath = await qrCreator(data.info.targetUrl, data.info.name);
-    if (!qrPath) {
-      return sendResponse(
-        res,
-        { error: "QR code creation failed" },
-        "addOne",
-        false,
-        500
-      );
-    }
+    
 
     const queries = new AdminQuery();
-    const response = await queries.addOne(qrPath, data);
-    console.log(qrPath, "response");
+    const response = await queries.addOne(data);
     const formattedData = dataFormatter(response);
 
     // Send JSON response with a link to the QR code file

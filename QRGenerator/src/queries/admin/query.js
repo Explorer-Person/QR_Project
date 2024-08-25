@@ -2,6 +2,8 @@ const { executeQuery } = require("@db");
 const { v4: uuidv4 } = require("uuid");
 const { dbResponseHandler } = require("@handlers");
 const { adminModel, userModel } = require("@models");
+const { qrCreator, dataFormatter } = require("@utils");
+
 
 class AdminQuery {
   getAll = async () => {
@@ -15,10 +17,21 @@ class AdminQuery {
     const params = [id];
     return executeQuery(query, params);
   };
-  addOne = async (qrPath, userInfo) => {
+  addOne = async (userInfo) => {
     await userModel(); // Ensure this is an async function
     const id = uuidv4();
     const formattedUrl = `${userInfo.info.targetUrl}/${id}`
+    const qrPath = await qrCreator(formattedUrl, userInfo.info.name);
+    if (!qrPath) {
+      return sendResponse(
+        res,
+        { error: "QR code creation failed" },
+        "addOne",
+        false,
+        500
+      );
+    }
+
     console.log(formattedUrl);
     const query = `INSERT INTO user 
       (name, surname, phone, role, email, 
