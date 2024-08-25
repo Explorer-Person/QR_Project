@@ -21,12 +21,7 @@ app.use(express.json());
 // Serve static files for AdminPanel
 app.use('/', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
 // Serve static files for UserInfoPanel
-app.use('/', express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
-
-
-
-// API routes
-app.use("/api", routes);
+app.use('/user/', express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
 
 // Serve the UserInfoPanel app on the root URL
 app.get('/user/*', (req, res) => {
@@ -37,6 +32,11 @@ app.get('/user/*', (req, res) => {
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
 });
+
+// API routes
+app.use("/api", routes);
+
+
 
 // Global error handler middleware
 app.use((err, req, res, next) => {
