@@ -17,6 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
+// API routes
+app.use("/api", routes);
+
 
 // Serve static files for AdminPanel
 app.use('/', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
@@ -33,8 +36,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
 });
 
-// API routes
-app.use("/api", routes);
 
 
 
