@@ -1,7 +1,7 @@
 // db/db.js
 const mysql = require('mysql2/promise');
-const Migration = require('mysql2-migrations')
 require('dotenv').config();
+
 
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
@@ -57,11 +57,17 @@ async function executeQuery(query, parameters) {
 }
 
 
-const db_query = new Migration();
-db_query.conn = pool;
-db_query.name_app = 'QR_App'
-// db_query.name_table_migrations = 'users'
-// db_query.show_query = true
-// db_query.start()
+(async () => {
+    const { Migration } = await import('mysql2-migrations');
+    // Use Migration as needed
+    const db_query = new Migration();
+    db_query.conn = pool;
+    db_query.name_app = 'QR_App'
+    // db_query.name_table_migrations = 'users'
+    // db_query.show_query = true
+    // db_query.start()
+    
+})();
+
 
 module.exports = { executeQuery, pool };
