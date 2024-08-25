@@ -1,0 +1,14 @@
+.custom-button {
+  text-align: center;
+  border-radius: 5px;
+  transition: 0.1s;
+  border: none;
+  text-align: center;
+  box-shadow: 2px 2px 4px 2px;
+}
+.custom-button:hover {
+  transform: scale(1.05); /* Slight scale-up effect on hover */
+}
+.custom-button:active {
+  transform: scale(0.98); /* Slight scale-down effect on click */
+}
