@@ -17,22 +17,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Serve static files for UserInfoPanel
-app.use('/user', express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
+app.use('/', express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
 
 // Serve static files for AdminPanel
-app.use('/admin', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
+app.use('/', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
 
 
 // API routes
 app.use("/api", routes);
 
 // Serve the UserInfoPanel app on the root URL
-app.get('/', (req, res) => {
+app.get('/user/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/UserInfoPanel/dist', 'index.html'));
 });
 
 // Serve the AdminPanel app on the /admin URL
-app.get('/admin/*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
 });
 
