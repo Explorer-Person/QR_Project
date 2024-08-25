@@ -16,9 +16,11 @@ app.use(helmet);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
-app.use(express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
+// Serve static files for UserInfoPanel
+app.use('/user', express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
+
+// Serve static files for AdminPanel
+app.use('/admin', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
 
 
 // API routes
