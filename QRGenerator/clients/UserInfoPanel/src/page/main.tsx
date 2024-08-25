@@ -3,6 +3,7 @@ import './style.css';
 import { UserInfo } from '@src/interfaces';
 import { userData } from '@src/data';
 import {FileDisplay} from './components'
+import kizilayLogo from '../assets/kizilay.jpg';
 
 function App() {
 
@@ -57,7 +58,7 @@ function App() {
           </div>
         </div>
         <div className='logo'>
-            <img src="https://logowik.com/content/uploads/images/turk-kizilay-yeni6291.jpg" alt="kizilay" />
+            <img src={kizilayLogo} alt="kizilay" />
         </div>
       </div>
     </div>
