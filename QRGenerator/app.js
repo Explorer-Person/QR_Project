@@ -17,19 +17,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'QRGenerator/clients/UserInfoPanel/dist')));
-app.use(express.static(path.join(__dirname, 'QRGenerator/clients/AdminPanel/dist')));
+app.use(express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
+app.use(express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
 
 
 app.use("/api", routes);
 
 // Serve the React app on the root URL
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'QRGenerator/clients/UserInfoPanel/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'clients/UserInfoPanel/dist', 'index.html'));
 });
 // Serve the React app on the root URL
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'QRGenerator/clients/AdminPanel/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
 });
 
 // Global error handler middleware
