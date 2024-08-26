@@ -45,7 +45,7 @@ const useFormHook = () => {
         }
         if (process === 'download') {
             dispatch(userApi({
-                endpoint: `/api/admin/qr/download/${encodeURI(param)}`,
+                endpoint: `/api/admin/qr/download/${encodeURIComponent(param)}`,
                 method: method,
                 data: userInfo,
                 process: process,
