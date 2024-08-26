@@ -20,10 +20,10 @@ const FileDisplay = ({ mediaInfo }: FileDisplayProps) => {
             if (file.filePath && typeof file.filePath === 'string') {
                 const timestamp = new Date().getTime(); // Unique timestamp
                 const url = `${import.meta.env.VITE_ENV_SERVER_URL}api/user/getFile/${encodeURI(file.filePath.replace(/\\\\/g, '/'))}?t=${timestamp}`;
-                const mimeType = await getMimeType(file.fileName as string);
+                const mimeType = await getMimeType(file.fileName);
                 setFileUrl(url);
                 setFileType(mimeType);
-                setFileName(file.fileName as string);
+                setFileName(file.fileName);
             }
         } catch (error) {
             console.error('Error fetching file:', error);
