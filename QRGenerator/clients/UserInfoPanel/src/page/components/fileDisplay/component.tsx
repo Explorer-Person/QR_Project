@@ -19,7 +19,7 @@ const FileDisplay = ({ mediaInfo }: FileDisplayProps) => {
         try {
             if (file.filePath && typeof file.filePath === 'string') {
                 const timestamp = new Date().getTime(); // Unique timestamp
-                const url = `${import.meta.env.VITE_ENV_SERVER_URL}api/user/getFile/${encodeURI(file.filePath.replace(/\\\\/g, '/'))}?t=${timestamp}`;
+                const url = `${import.meta.env.VITE_ENV_SERVER_URL}/api/user/getFile/${encodeURI(file.filePath.replace(/\\\\/g, '/'))}?t=${timestamp}`;
                 const mimeType = await getMimeType(file.fileName);
                 setFileUrl(url);
                 setFileType(mimeType);
