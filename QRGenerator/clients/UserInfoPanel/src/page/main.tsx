@@ -35,7 +35,8 @@ function App() {
     fetchData();
   }, [window.location.pathname])
   const dateFormatter = (date: string) =>{
-    const formattedDate = date.split('T')[0];
+    const formattedDate = date.split('T')[0].split('-').reverse().join('.');
+    console.log(formattedDate)
     return formattedDate
   }
   return (
@@ -51,10 +52,10 @@ function App() {
           <h4>Aktif Görevde</h4>
           </div>
           <div className='details'>
-          <p><strong>TC Number:</strong> {userInfo.info.tcNumber}</p>
-            <p><strong>Phone:</strong> {userInfo.info.phone}</p>
+            <p><strong>TC Kimlik Numara:</strong> {userInfo.info.tcNumber}</p>
+            <p><strong>Telefon:</strong> {userInfo.info.phone}</p>
             <p><strong>Email:</strong> {userInfo.info.email}</p>
-            <p><strong>Born Date:</strong> {dateFormatter(userInfo.info.bornDate)}</p>
+            <p><strong>Doğum Tarihi:</strong> {dateFormatter(userInfo.info.bornDate)}</p>
           </div>
         </div>
         <div className='logo'>
