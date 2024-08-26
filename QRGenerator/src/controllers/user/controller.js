@@ -13,7 +13,8 @@ exports.getUser = async (req, res, next) => {
 };
 
 exports.getFile = async (req, res, next) => {
-  const filePath = decodeURI(req.params.filePath);
+  // Decode and sanitize the file path
+  const filePath = decodeURIComponent(req.params.filePath.replace(/\\/g, '/'));
 
   if (filePath) {
     // Assuming you're using Express.js
