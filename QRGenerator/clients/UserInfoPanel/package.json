@@ -3,8 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "/public",
+  "homepage": "/userPanel",
   "scripts": {
+    "heroku-postbuild": "npm run build",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

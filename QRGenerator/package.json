@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "postinstall": "find . -name '.git' -type d -exec rm -rf {} +",
     "heroku-postbuild": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start_dev": "nodemon app.js",
