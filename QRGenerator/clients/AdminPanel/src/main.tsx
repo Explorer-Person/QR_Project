@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <Router>
+      <Router basename='/adminPanel'>
         <App />
       </Router>
     </Provider>
