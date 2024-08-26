@@ -19,10 +19,10 @@ app.use(express.json());
 // API routes
 app.use("/api", routes);
 
-app.use('/userPanel', express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
+app.use(express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
 app.use('/adminPanel', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
 
-app.get('/userPanel/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/UserInfoPanel/dist', 'index.html'));
 });
 
