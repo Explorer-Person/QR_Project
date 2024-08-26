@@ -4,16 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "heroku-postbuild": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start_dev": "nodemon app.js",
     "start": "node app.js",
     "build_UserInfoPanel": "cd QRGenerator/clients/UserInfoPanel && npm run build",
-    "build_AdminPanel": "cd QRGenerator/clients/AdminPanel && npm run build",
-    "db_create": "node src/mysql2-migrations/migrations_config.js create",
-    "db_refresh": "node src/mysql2-migrations/migrations_config.js refresh",
-    "db_migrate_all": "node src/mysql2-migrations/migrations_config.js migrate",
-    "db_migrate": "node src/mysql2-migrations/migrations_config.js up",
-    "db_rollback": "node src/mysql2-migrations/migrations_config.js down"
+    "build_AdminPanel": "cd QRGenerator/clients/AdminPanel && npm run build"
   },
   "keywords": [],
   "author": "",

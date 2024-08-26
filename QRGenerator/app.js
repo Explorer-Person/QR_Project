@@ -20,8 +20,8 @@ app.use(express.json());
 app.use("/api", routes);
 
 // Serve static files for UserInfoPanel and AdminPanel
-app.use('/userPanel/*', express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
-app.use('/adminPanel/*', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
+app.use('/userPanel', express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
+app.use('/adminPanel', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
 
 // Serve the UserInfoPanel app on "/userPanel"
 app.get('/userPanel/*', (req, res) => {
@@ -31,11 +31,6 @@ app.get('/userPanel/*', (req, res) => {
 // Serve the AdminPanel app on "/adminPanel"
 app.get('/adminPanel/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
-});
-
-// Optionally, you can serve one of them on the root URL ("/")
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'clients/UserInfoPanel/dist', 'index.html'));
 });
 
 
