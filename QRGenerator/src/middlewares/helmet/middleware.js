@@ -14,7 +14,9 @@ middleware.use(helmet({
         "trusted-cdn.com", 
         process.env.CLIENT_ADMIN,  // Allow images from the admin client domain
         process.env.CLIENT_USER,   // Allow images from the user client domain
-        `${process.env.VITE_ENV_SERVER_URL}/api/user/getFile`  // Allow images from your API endpoint
+        `${process.env.VITE_ENV_SERVER_URL}/api/user/getFile`,  // Allow images from your API endpoint
+        `${process.env.VITE_ENV_SERVER_URL}/userPanel/api/user/getFile`,  // Allow images from your API endpoint
+        `${process.env.VITE_ENV_SERVER_URL}/adminPanel/api/user/getFile`,  // Allow images from your API endpoint
       ],
       "style-src": ["'self'", "'unsafe-inline'", "trusted-cdn.com"], // Allow inline styles and styles from trusted CDNs
       "connect-src": ["'self'", process.env.CLIENT_ADMIN, process.env.CLIENT_USER], // Allow connections only to specific origins
