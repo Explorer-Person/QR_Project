@@ -24,7 +24,7 @@ function App() {
     }
   }, []);
   useEffect(() => {
-    if(loading === false){
+    if(loading === false && process === 'login'){
       if (process === 'login' && status === true) {
         navigate('/');
       } else if (process === 'login' && status === false) {
