@@ -1,0 +1,56 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* 404 Not Found Page */
+.not-found, .not-authorized {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.not-found h1, .not-authorized h1 {
+    font-size: 120px;
+    color: #ff4757;
+    margin: 0;
+}
+
+.not-found p, .not-authorized p {
+    font-size: 24px;
+    color: #2f3542;
+    margin: 20px 0;
+}
+
+.back-home {
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #1e90ff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.back-home:hover {
+    background-color: #3742fa;
+}
+
+/* 403 Not Authorized Page */
+.not-authorized h1 {
+    font-size: 120px;
+    color: #ffa502;
+    margin: 0;
+}
+
+.not-authorized p {
+    font-size: 24px;
+    color: #2f3542;
+    margin: 20px 0;
+}

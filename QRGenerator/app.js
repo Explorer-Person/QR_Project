@@ -5,7 +5,7 @@ const path = require('path');
 const express = require("express");
 const app = express();
 
-const {helmet, cors} = require('@middlewares')
+const {helmet, cors, auth} = require('@middlewares')
 const { routes } = require("@routes");
 
 const PORT = process.env.PORT || 3000;
@@ -15,6 +15,10 @@ app.use(helmet);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(auth.session);
+
+app.use(auth.authorize_check);
 
 // API routes
 app.use("/api", routes);

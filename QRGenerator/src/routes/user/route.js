@@ -1,13 +1,21 @@
 const express = require("express");
 const route = express.Router();
-const path = require("path");
-const fs = require("node:fs");
+
+const {multer, jimp} = require('@middlewares')
+const {validateUser, checkValidation} = require('@validator');
 
 const {
-  userController: { getUser, getFile },
+  userController: { addUser, getUsers, downloadQR, deleteUser, updateUser, getUser, getFile },
+  authController: { logoutAdmin }
+
 } = require("@controllers");
 
-route.get("/getOne/:id", getUser);
-route.get("/getFile/:filePath", getFile);
+route.post("/addOne",multer, jimp, validateUser, checkValidation, addUser);
+route.put("/updateOne", multer, jimp, validateUser, checkValidation, updateUser);
+// Endpoint to download QR code
+route.get("/download/:filename", downloadQR);
+route.get("/getAll", getUsers);
+route.delete("/deleteOne/:id", deleteUser);
+route.post("/logout", logoutAdmin)
 
 module.exports = route;

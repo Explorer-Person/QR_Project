@@ -3,14 +3,12 @@ const routes = express.Router();
 
 const adminRoutes = require('./admin');
 const userRoutes = require('./user');
+const generalRoutes = require('./general');
+const {auth} = require('@middlewares')
 
-routes.use('/admin', adminRoutes);
-routes.use('/user', userRoutes);
+routes.use('/authorized/admin', auth.check.rootAdminCheck, adminRoutes);
+routes.use('/authorized/user', auth.check.adminCheck, userRoutes);
+routes.use('/public', generalRoutes);
 
-
-// (next) => {
-//     console.log("request caught");
-//     next();
-//   }
 
 module.exports = routes;

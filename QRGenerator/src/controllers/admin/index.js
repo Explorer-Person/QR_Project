@@ -1,3 +1,3 @@
-const {downloadQR, addUser, deleteUser, getUsers} = require('./controller')
+const {addAdmin, getAdmins, deleteAdmin, updateAdmin} = require('./controller')
 
-module.exports = {downloadQR, addUser, getUsers, deleteUser}
+module.exports = {addAdmin, getAdmins, deleteAdmin, updateAdmin}

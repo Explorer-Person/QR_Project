@@ -4,7 +4,7 @@ async function userModel() {
     try {
         console.log("Creating table if not exists...");
         const query = `
-            CREATE TABLE IF NOT EXISTS user (
+            CREATE TABLE IF NOT EXISTS users (
                 id VARCHAR(255) PRIMARY KEY,
                 name VARCHAR(255), 
                 surname VARCHAR(255),

@@ -18,7 +18,7 @@ const FileDisplay = ({ mediaInfo }: FileDisplayProps) => {
         
         try {
             if (file.filePath && typeof file.filePath === 'string') {
-                const url = `${import.meta.env.VITE_ENV_SERVER_URL}/api/user/getFile/${encodeURIComponent(file.filePath)}`;
+                const url = `${import.meta.env.VITE_ENV_SERVER_URL}/api/public/getFile/${encodeURIComponent(file.filePath)}`;
                 const mimeType = await getMimeType(file.fileName);
                 setFileUrl(url);
                 setFileType(mimeType);

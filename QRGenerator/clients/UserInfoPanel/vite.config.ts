@@ -10,4 +10,7 @@ export default defineConfig({
       '@src': path.resolve('./src'),
     },
   },
+  server: {
+    port: 5186,
+  }
 })

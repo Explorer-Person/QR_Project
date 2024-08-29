@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react';
 import './style.css';
 import { UserInfo } from '@src/interfaces';
-import { userData } from '@src/data';
-import {FileDisplay} from './components'
+import { FileDisplay } from './components'
 import kizilayLogo from '../assets/kizilay.jpg';
-
+import { NotFoundPage } from '@src/error';
+import LoadingPage from './loadingPage';
 function App() {
 
-  const [userInfo, setUserInfo] = useState<UserInfo>(userData)
-  
-  useEffect(()=>{
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true); // Start loading
       try {
         const endpoint = window.location.pathname;
-        const response = await fetch(`${import.meta.env.VITE_ENV_SERVER_URL}/api/user/getOne${endpoint}`, {
+        const response = await fetch(`${import.meta.env.VITE_ENV_SERVER_URL}/api/public/getOne${endpoint}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -21,6 +23,8 @@ function App() {
         });
 
         if (!response.ok) {
+          setIsLoading(false); // Start loading
+
           throw new Error('Network response was not ok');
         }
         const handledResponse = await response.json();
@@ -29,27 +33,34 @@ function App() {
         setUserInfo(data);
       } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
+      } finally {
+        setIsLoading(false); // Start loading
       }
     };
 
     fetchData();
   }, [window.location.pathname])
-  const dateFormatter = (date: string) =>{
+  const dateFormatter = (date: string) => {
     const formattedDate = date.split('T')[0].split('-').reverse().join('.');
-    console.log(formattedDate)
     return formattedDate
+  }
+  if(isLoading){
+    return <LoadingPage/>
+  }
+  if (userInfo === null) {
+    return <NotFoundPage />
   }
   return (
     <div className="card-container">
       <div className="profile-card">
         <div className="profile-image">
-          <FileDisplay mediaInfo={userInfo}/>
+          <FileDisplay mediaInfo={userInfo} />
         </div>
         <div className="profile-info">
           <h1>{`${userInfo.info.name} ${userInfo.info.surname}`}</h1>
           <div className='sideInfo'>
-          <h2>{userInfo.info.role}</h2> 
-          <h4>Aktif Görevde</h4>
+            <h2>{userInfo.info.role}</h2>
+            <h4>Aktif Görevde</h4>
           </div>
           <div className='details'>
             <p><strong>TC Kimlik Numara:</strong> {userInfo.info.tcNumber}</p>
@@ -59,7 +70,7 @@ function App() {
           </div>
         </div>
         <div className='logo'>
-            <img src={kizilayLogo} alt="kizilay" />
+          <img src={kizilayLogo} alt="kizilay" />
         </div>
       </div>
     </div>

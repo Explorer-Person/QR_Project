@@ -1,77 +1,112 @@
-
-
-
-import { ButtonInfo } from "@src/interfaces";
-import { userApi } from "@src/store/apis/info";
+import { AdminInfo, ButtonInfo, UserInfo } from "@src/interfaces";
+import { requestApi } from "@src/store";
 import { useAppDispatch, useAppSelector } from "@src/store/hook";
-import { setFileInfo, setUserInfo } from "@src/store/slices/user/slice";
+import {
+  setAdminInfo,
+  setFileInfo,
+  setLoginInfo,
+  setProcessInfo,
+  setUserInfo,
+} from "@src/store/slices/info/slice";
 import { RootState } from "@src/store/store";
 import React from "react";
 
-
 const useFormHook = () => {
-    const dispatch = useAppDispatch();
-    const {userInfo, fileInfo} = useAppSelector((state:RootState)=>state.user.infos)
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        const { name, value } = event.target
-        
-            dispatch(setUserInfo({
-                ...userInfo,
-                info: {
-                    ...userInfo.info,
-                    [name]: value,
+  const dispatch = useAppDispatch();
+  const { processInfo, userInfo, fileInfo, userInfoArray, adminInfo, adminInfoArray, loginInfo } = useAppSelector((state: RootState) => state.info.infos);
+    
+  const setReducerInfo = (
+   inheritor:string, name:string, value:string
+  ) => {
 
-                }
-            }));
-     }
-
-     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
-        const {files} = event.target as HTMLInputElement;
-        if(files){
-            dispatch(setFileInfo(files[0]))
-        }
-     }  
-    const handleSubmit = (commonData: ButtonInfo) => {
-        const { process, param, method } = commonData;
-        
-        if (process === 'addOne') {
-            dispatch(userApi({
-                endpoint: `/api/admin/user/addOne`,
-                method: method,
-                data: userInfo,
-                process: process,
-                imageFile: fileInfo
-            }));
-        }
-        if (process === 'download') {
-            dispatch(userApi({
-                endpoint: `/api/admin/qr/download/${encodeURIComponent(param)}`,
-                method: method,
-                data: userInfo,
-                process: process,
-                imageFile: null
-            }));
-        }
-        if (process === 'deleteOne') {
-            dispatch(userApi({
-                endpoint: `/api/admin/user/deleteOne/${param}`,
-                method: method,
-                data: userInfo,
-                process: process,
-                imageFile: null
-            }));
-        }
-
+    if(inheritor === 'user'){
+      dispatch(
+        setUserInfo({
+          ...userInfo,
+          info: {
+            ...userInfo.info,
+            [name]: value,
+          },
+        })
+      );  
     }
-
-
-    return {
-        functions: {
-            handleChange,
-            handleSubmit,
-            handleFileChange
-        }
+    if(inheritor === 'admin'){
+      dispatch(
+        setAdminInfo({
+          ...adminInfo,
+          info: {
+            ...adminInfo.info,
+            [name]: value,
+          },
+        })
+      );  
     }
-}
+    if(inheritor === 'login'){
+      dispatch(
+        setLoginInfo({
+          ...loginInfo,
+            [name]: value,
+        })
+      );  
+    }
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = event.target as HTMLInputElement;
+    if (files) {
+      dispatch(setFileInfo(files[0]));
+    }
+  };
+  const handleSubmit = (commonData: ButtonInfo) => {
+    const { process, param, method, buttonType, inheritor } = commonData;
+    dispatch(setProcessInfo(process));
+    if(buttonType === 'action' && process === 'updateOne'){
+      if(inheritor === 'user'){
+        const userInfo = userInfoArray.find(
+          (userInfo) => userInfo.id === param
+        );
+        dispatch(setUserInfo(userInfo as UserInfo));
+      }
+      if(inheritor === 'admin'){
+        const adminInfo = adminInfoArray.find(
+          (adminInfo) => adminInfo.id === param
+        );
+        const editedAdminInfo = {...adminInfo,
+          info:{
+            ...adminInfo?.info,
+            password: '',
+          }
+        }
+        dispatch(setAdminInfo(editedAdminInfo as AdminInfo));
+      }
+    }
+    if(buttonType === 'request'){
+      dispatch(
+        requestApi({
+          endpoint: inheritor === 'auth' ? `/api/public/login` : `/api/authorized/${inheritor}/${process}${param !== '' ? `/${encodeURIComponent(param)}` : ''}`,
+          method: method,
+          data: inheritor === 'auth' ? loginInfo : inheritor === 'user' ? userInfo : adminInfo,
+          process: process,
+          imageFile: fileInfo,
+        })
+      );
+    }
+    
+  };
+
+  return {
+    functions: {
+      setReducerInfo,
+      handleSubmit,
+      handleFileChange,
+    },
+    datas: {
+        userInfo, 
+        userInfoArray,
+        fileInfo,
+        processInfo
+    }
+  };
+};
 
 export default useFormHook;

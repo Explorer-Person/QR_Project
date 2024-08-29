@@ -1,3 +1,3 @@
-import { userApi } from "./api";
+import { requestApi } from "./api";
 
-export {userApi}
+export {requestApi}

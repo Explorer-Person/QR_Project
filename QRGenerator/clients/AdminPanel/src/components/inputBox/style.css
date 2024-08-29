@@ -1,8 +1,9 @@
 .input-box {
   max-width: 75%;
-  max-height: 500px;
-  margin: auto;
   background-color: #f7f7f7;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -22,19 +23,22 @@
   align-items: stretch;
 }
 
-.form-group {
+
+.form-element {
   position: relative;
-  width: 30%;
+  margin: auto auto;
+  width: 30% !important; /* Set default width to 30% */
   margin-bottom: 15px;
+  box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
 .form-control {
   padding: 10px;
   border-radius: 5px;
-  box-sizing: border-box;
   width: 100%;
   background-color: #fff;
   border: 1px solid #ddd;
+  box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
 .form-control:focus {
@@ -56,8 +60,7 @@
   background-color: #3e8e41;
 }
 
-.input-box .form-group label {
-  display: block;
+.input-box .form-element label {
   margin-bottom: 10px;
   color: #666;
   font-size: 14px;
@@ -76,10 +79,6 @@
   background-color: #f7f7f7;
 }
 
-.form-group input{
-  height: 50px;
-}
-
 .input-box select {
   width: 100%;
   height: 50px;
@@ -87,7 +86,248 @@
   border-radius: 5px;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
 }
+.buttons{
+  position: relative;
+  margin-top: 2%;
+  right: 10%;
+  width: 25%;
+}
+.buttons div{
+  height: 100%;
+  width: 100%;
+}
+.navButtons{
+  position: relative;
+  left: 7%;
+  margin-bottom: 5%;
+  width: 30%;
+  display: block;
+}
+.navButtons button{
+  width: 100%;
+  height: 50px;
+}
+.navButtons div{
+  position: relative;
+  left: 25%;
+  width: 100%;
+}
 
 .input-box button[type="submit"] {
-  margin: 20px 20px;
+  margin: 20px 0; /* Center and adjust margin for submit button */
+}
+.directionButton{
+  width: 100%;
+  border-radius: 5px;
+  height: 75%;
+  background-color: #6831A2;
+  padding: 0px 10px;
+  font-size: 100%;
+  color: white;
+}
+.header{ 
+  display: flex;
+  gap: 25%;
+}
+@media (max-width: 768px) {
+  .header{ 
+    display: flex;
+    gap: 1%;
+  }
+  .header div {
+    margin-right: 15%;
+  }
+  .input-box {
+    max-width: 90%; /* Increase width for better use of space */
+    padding: 15px;
+    margin-bottom: 5%; /* Ensure enough space below */
+  }
+  .buttons{
+    margin-left: 20%;
+    width: 100%;
+    text-align: center;
+  }
+  .buttons div{
+    width: 100%;
+    height: 100px;
+  }
+  .navButtons{
+    position: relative;
+    left: 10%;
+    margin-bottom: 5%;
+    width: 40%;
+    display: block;
+  }
+  .navButtons button{
+    width: 100%;
+  }
+  .navButtons div{
+    position: relative;
+    left: 25%;
+    width: 100%;
+  }
+  .directionButton{
+    width: 100%;
+    border-radius: 5px;
+    height: 75%;
+    background-color: #6831A2;
+    padding: 0px 10px;
+    font-size: 100%;
+    color: white;
+  }
+
+  .input-box h2 {
+    font-size: 20px; /* Slightly smaller heading */
+  }
+
+  .form-element {
+    width: 45% !important; /* Adjust form group width for medium screens */
+    margin-bottom: 15px; /* Add margin-bottom for spacing */
+  }
+
+  .form-control {
+    padding: 8px;
+  }
+
+  .btn {
+    padding: 8px 16px; /* Slightly smaller button */
+    font-size: 14px; /* Smaller font size */
+  }
+
+  .input-box button[type="submit"] {
+    margin: 15px 0; /* Adjust margins for better spacing */
+  }
+}
+
+@media (max-width: 500px) {
+  .header{ 
+    display: flex;
+    gap: 0%;
+  }
+  .header div {
+    margin-right: 15%;
+  }
+  .input-box {
+    max-width: 100%; /* Increase width to fill more space */
+    padding: 10px;
+    margin-bottom: 5%; /* Ensure enough space below */
+  }
+
+  .buttons{
+    margin-left: 20%;
+    width: 100%;
+    text-align: center;
+  }
+  .buttons div{
+    width: 100%;
+    height: 100px;
+  }
+  .navButtons{
+    position: relative;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    width: 35%;
+    display: block;
+  }
+  .navButtons button{
+    width: 100%;
+  }
+  .navButtons div{
+    position: relative;
+    left: 25%;
+    width: 100%;
+  }
+  .input-box h2 {
+    font-size: 18px; /* Smaller heading for small screens */
+  }
+
+  .form-element {
+    width: 100% ; /* Full width for form groups on small screens */
+    margin-bottom: 20px; /* Add margin-bottom for spacing */
+  }
+
+  .form-control {
+    padding: 6px;
+  }
+
+  .btn {
+    padding: 6px 12px; /* Even smaller button */
+    font-size: 12px; /* Smaller font size */
+  }
+
+  .buttons{
+    width: 100%;
+    text-align: center;
+  }
+  .input-box button[type="submit"] {
+    margin: 10px 0; /* Adjust margins for small screens */
+  }
+}
+
+@media (max-width: 350px) {
+  .navButtons{
+    position: relative;
+    margin-bottom: 5%;
+    width: 45%;
+    display: block;
+  }
+  .header{
+    display: block;
+  }
+  .navButtons button{
+    width: 100%;
+  }
+  .navButtons div{
+    position: relative;
+    width: 100%;
+  }
+  .input-box {
+    max-width: 100%; /* Increase width to fill more space */
+    padding: 10px;
+    margin-bottom: 5%; /* Ensure enough space below */
+  }
+
+  .input-box h2 {
+    font-size: 16px; /* Smaller heading for very small screens */
+  }
+
+  .form-element {
+    width: 100% !important; /* Full width for form groups on very small screens */
+    margin-bottom: 20px; /* Add margin-bottom for spacing */
+  }
+
+  .form-control {
+    padding: 5px; /* Reduce padding for small screens */
+  }
+
+  .btn {
+    padding: 5px 10px; /* Even smaller button */
+    font-size: 10px; /* Smaller font size */
+  }
+
+  .input-box button[type="submit"] {
+    margin: 10px 0; /* Adjust margins for very small screens */
+  }
+}
+
+@media (max-width: 225px) {
+  .input-box {
+    max-width: 100%; /* Increase width to fill more space */
+    margin-bottom: 5%; /* Ensure enough space below */
+  }
+  .navButtons{
+    position: relative;
+    width: 45%;
+    display: block;
+  }
+  .navButtons button{
+    width: 100%;
+  }
+  .navButtons div{
+    position: relative;
+    width: 100%;
+  }   
+  .header{
+    display: block;
+  }
 }

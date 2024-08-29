@@ -27,22 +27,30 @@ const UserBox = ({ userInfo }: UserBoxProps) => {
         fontSize: `100%`,
         color: `white`
     }
+    const styleUpdateButton = {
+        width: `100%`,
+        height: `75%`,
+        backgroundColor: `blue`,
+        padding: `0px 10px`,
+        fontSize: `100%`,
+        color: `white`
+    }
     return (
         <div className='user-container'>
             <div className="user-box">
                 <h3>{userInfo.info.name} {userInfo.info.surname}</h3>
                 <div className="img-container">
-                    
+
                     <FileDisplay mediaInfo={userInfo} />
 
-                    <CustomButton method='GET' process='download' type='request' style={styleQRButton} content={'See QR'} param={userInfo.info.qrPath}  />
-                    <CustomButton method='DELETE' process='deleteOne' type='request' style={styleDeleteButton} content={'Delete User'} param={userInfo.id}  />
+                    <div className='confButtons'>
+                        <CustomButton inheritor='user' method='GET' process='download' type='request' style={styleQRButton} content={'See QR'} param={userInfo.info.qrPath} />
+                        <CustomButton inheritor='user' method='DELETE' process='deleteOne' type='request' style={styleDeleteButton} content={'Delete User'} param={userInfo.id} />
+                        <CustomButton inheritor='user' method='UPDATE' process='updateOne' type='action' style={styleUpdateButton} content={'Update User'} param={userInfo.id} />
+
+                    </div>
                 </div>
                 <div className="info-container">
-                    <div>
-                        <p className='label'>ID:</p>
-                        <p className='info'>{userInfo.id}</p>
-                    </div>
                     <div>
                         <p className='label'>Phone:</p>
                         <p className='info'>{userInfo.info.phone}</p>
@@ -64,6 +72,10 @@ const UserBox = ({ userInfo }: UserBoxProps) => {
                 {showDetails && (
                     <div className="detail-box">
                         <div>
+                            <p className='label'>ID:</p>
+                            <p className='info'>{userInfo.id}</p>
+                        </div>
+                        <div>
                             <p className='label'>Born Date:</p>
                             <p className='info'>{userInfo.info.bornDate}</p>
                         </div>
@@ -72,13 +84,8 @@ const UserBox = ({ userInfo }: UserBoxProps) => {
                             <p className='info'>{userInfo.info.tcNumber}</p>
                         </div>
                         <div>
-                            <p className='label'>Target URL:</p>
-                            <p className='info'>{userInfo.info.targetUrl}</p>
-                        </div>
-                        <div>
                             <p className='label'>Short URL:</p>
-                            <p className='info'>{userInfo.info.shortUrl}</p>
-
+                            <p className='info'> <a href={userInfo.info.targetUrl}>{userInfo.info.shortUrl}</a></p>
                         </div>
                     </div>
                 )}

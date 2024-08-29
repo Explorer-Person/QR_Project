@@ -3,7 +3,6 @@
   border-radius: 5px;
   transition: 0.1s;
   border: none;
-  text-align: center;
   box-shadow: 2px 2px 4px 2px;
 }
 .custom-button:hover {

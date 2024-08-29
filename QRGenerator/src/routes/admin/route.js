@@ -2,14 +2,17 @@ const express = require("express");
 const route = express.Router();
 
 const {
-  adminController: { addUser, getUsers, downloadQR, deleteUser },
+  adminController: { addAdmin, getAdmins, downloadQR, deleteAdmin, updateAdmin },
+  authController: { loginAdmin }
 } = require("@controllers");
-const {multer, jimp} = require('@middlewares')
 
-route.post("/user/addOne", multer, jimp, addUser);
-// Endpoint to download QR code
-route.get("/qr/download/:filename", downloadQR);
-route.get("/user/getAll", getUsers);
-route.delete("/user/deleteOne/:id", deleteUser);
+const {validateAdmin, checkValidation} = require('@validator');
+
+route.post("/addOne", validateAdmin, checkValidation, addAdmin);
+route.put("/updateOne", validateAdmin, checkValidation, updateAdmin);
+route.get("/getAll", getAdmins);
+route.delete("/deleteOne/:id", deleteAdmin);
+
+
 
 module.exports = route;

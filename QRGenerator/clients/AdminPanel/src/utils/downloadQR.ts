@@ -12,6 +12,8 @@ const downloadQR = async (filename: string, response: {data: Blob}) => {
       document.body.removeChild(link); // Cleanup
     } catch (error) {
       console.error("Error downloading file:", error);
+    } finally{
+      window.location.reload()
     }
   };
 

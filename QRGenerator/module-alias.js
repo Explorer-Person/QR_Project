@@ -11,4 +11,6 @@ moduleAlias.addAliases({
   '@routes': path.resolve(__dirname, 'src/routes'),
   '@queries': path.resolve(__dirname, 'src/queries'),
   '@utils': path.resolve(__dirname, 'src/utils'),
+  '@validator': path.resolve(__dirname, 'src/validator'),
+  '@handlers': path.resolve(__dirname, 'src/handlers'),
 });

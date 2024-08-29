@@ -1,12 +1,20 @@
-import {CustomButton} from '@src/components';
+import { CustomButton } from '@src/components';
 import './style.css'
 import { useFormHook } from '@src/hooks';
+import { useNavigate } from 'react-router-dom';
+import { useAppSelector } from '@src/store/hook';
+import { RootState } from '@src/store/store';
 
 
 const InputBox = () => {
 
-  const { functions: { handleChange, handleFileChange } } = useFormHook();
-
+  const { functions: { setReducerInfo, handleFileChange }, datas: { processInfo, userInfo } } = useFormHook();
+  const navigate = useNavigate();
+  const { status } = useAppSelector((state: RootState) => state.info.response)
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target as HTMLInputElement;
+    setReducerInfo('user', name, value);
+  }
   const styleAddButton = {
     width: `75%`,
     height: `50%`,
@@ -15,7 +23,15 @@ const InputBox = () => {
     fontSize: `100%`,
     color: `white`
   }
-  const styleGenerateButton = {
+  const styleUpdateButton = {
+    width: `75%`,
+    height: `50%`,
+    backgroundColor: `darkblue`,
+    padding: `1px 20px`,
+    fontSize: `100%`,
+    color: `white`
+  }
+  const styleLogoutButton = {
     width: `100%`,
     height: `50%`,
     backgroundColor: `#BB2D3B`,
@@ -23,15 +39,30 @@ const InputBox = () => {
     fontSize: `100%`,
     color: `white`
   }
+
+  const formattedDate = (date: string) => {
+    return date.split('T')[0];
+  }
+  const toAdminManagement = () => {
+    return navigate('/adminOperations');
+  }
   return (
     <div className="input-box">
-      <h2>Registration Form</h2>
+      <div className='header'>
+        <h2>Registration Form</h2>
+        {status === true ?
+          <div className='navButtons'>
+            <button className='directionButton' onClick={toAdminManagement}>Manage Admins</button>
+            <CustomButton style={styleLogoutButton} process={'logout'} content={'Logout'} type={'request'} method={'POST'} param={''} inheritor={'user'} />
+          </div>
+          : null}
+      </div>
       <div className="form">
-        <div className="form-group">
+        <div className="form-element">
           <label>Full Name:</label>
           <input
             type="text"
-            // value={name}
+            value={userInfo.info.name}
             name='name'
             onChange={handleChange}
             placeholder="Enter your full name..."
@@ -39,11 +70,11 @@ const InputBox = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-element">
           <label>Surname:</label>
           <input
             type="text"
-            // value={surname}
+            value={userInfo.info.surname}
             name='surname'
             onChange={handleChange}
             placeholder="Enter your surname..."
@@ -51,11 +82,11 @@ const InputBox = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-element">
           <label>Phone Number:</label>
           <input
             type="tel"
-            // value={phone}
+            value={userInfo.info.phone}
             name='phone'
             onChange={handleChange}
             placeholder="Enter your phone number..."
@@ -63,11 +94,11 @@ const InputBox = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-element">
           <label>Role:</label>
           <input
             type="text"
-            // value={phone}
+            value={userInfo.info.role}
             name='role'
             onChange={handleChange}
             placeholder="Enter Role..."
@@ -75,33 +106,33 @@ const InputBox = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-element">
           <label>Email:</label>
           <input
             type="email"
-            // value={email}
+            value={userInfo.info.email}
             name='email'
             onChange={handleChange}
             placeholder="Enter your email address..."
             className="form-control"
           />
         </div>
-        <div className="form-group">
+        <div className="form-element">
           <label>TC Number:</label>
           <input
             type="text"
-            // value={email}
+            value={userInfo.info.tcNumber}
             name='tcNumber'
             onChange={handleChange}
             placeholder="Enter your TC Number..."
             className="form-control"
           />
         </div>
-        <div className="form-group">
+        <div className="form-element">
           <label>Born Date:</label>
           <input
             type="date"
-            // value={email}
+            value={formattedDate(userInfo.info.bornDate)}
             name='bornDate'
             onChange={handleChange}
             placeholder="Born Date: "
@@ -109,12 +140,11 @@ const InputBox = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-element">
           <label>Image:</label>
           <input
             type="file"
             accept=".jpg, .jpeg, .png"
-            // value={img}
             name='img'
             onChange={handleFileChange}
             placeholder="Choose an image..."
@@ -122,11 +152,11 @@ const InputBox = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-element">
           <label>Target URL:</label>
           <input
             type="url"
-            // value={targetUrl}
+            value={userInfo.info.targetUrl}
             name='targetUrl'
             onChange={handleChange}
             placeholder="Enter the target URL..."
@@ -134,11 +164,11 @@ const InputBox = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-element">
           <label>Short URL:</label>
           <input
             type="text"
-            // value={shortUrl}
+            value={userInfo.info.shortUrl}
             onChange={handleChange}
             name='shortUrl'
             placeholder="Enter the short URL..."
@@ -148,9 +178,10 @@ const InputBox = () => {
 
         {/* Button */}
 
-        <CustomButton type='submit' style={styleAddButton} process={'addOne'} content={'Add User'} method={'POST'} param={''}/>
-        <CustomButton type='action' style={styleGenerateButton} process={'generateUrl'} content={'Generate Short Url'} method={'null'} param={''}/>
-          
+        <div className='buttons'>
+          <CustomButton inheritor='user' type='request' style={processInfo === 'updateOne' ? styleUpdateButton : styleAddButton} process={processInfo === 'updateOne' ? 'updateOne' : 'addOne'} content={processInfo === 'updateOne' ? 'UpdateOne' : 'Add User'} method={processInfo === 'updateOne' ? 'PUT' : 'POST'} param={''} />
+        </div>
+
       </div>
     </div>
   );

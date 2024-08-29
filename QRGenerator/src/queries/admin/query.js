@@ -1,60 +1,49 @@
+const { sendResponse } = require("@handlers");
 const { executeQuery } = require("@db");
 const { v4: uuidv4 } = require("uuid");
-const { dbResponseHandler } = require("@handlers");
-const { adminModel, userModel } = require("@models");
-const { qrCreator, dataFormatter } = require("@utils");
-
+const { adminModel } = require("@models");
+const bcryptjs = require("bcryptjs");
 
 class AdminQuery {
   getAll = async () => {
-    await userModel();
-    const query = "SELECT * FROM user";
+    await adminModel();
+    const query = "SELECT * FROM admins";
     return executeQuery(query);
   };
   getOne = async (id) => {
-    await userModel();
-    const query = "SELECT * FROM user WHERE id=?";
+    await adminModel();
+    const query = "SELECT * FROM admins WHERE id=?";
     const params = [id];
     return executeQuery(query, params);
   };
-  addOne = async (userInfo) => {
-    await userModel(); // Ensure this is an async function
+  addOne = async (adminInfo) => {
+    await adminModel();
+
     const id = uuidv4();
-    const formattedUrl = `${userInfo.info.targetUrl}/${id}`
-    const qrPath = await qrCreator(formattedUrl, userInfo.info.name);
-    if (!qrPath) {
-      return sendResponse(
-        res,
-        { error: "QR code creation failed" },
-        "addOne",
-        false,
-        500
-      );
-    }
 
-    console.log(formattedUrl);
-    const query = `INSERT INTO user 
-      (name, surname, phone, role, email, 
-      tcNumber, bornDate, img, targetUrl, shortUrl, qrPath, id)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const query = `INSERT INTO admins 
+      (username, password, email, role, id)
+      VALUES (?, ?, ?, ?, ?)`;
 
+    const hashedPassword = bcryptjs.hashSync(adminInfo.info.username, 12);
     const params = [
-      userInfo.info.name,
-      userInfo.info.surname,
-      userInfo.info.phone,
-      userInfo.info.role,
-      userInfo.info.email,
-      userInfo.info.tcNumber,
-      userInfo.info.bornDate,
-      userInfo.file,
-      formattedUrl,
-      userInfo.info.shortUrl,
-      qrPath,
+      adminInfo.info.username,
+      hashedPassword,
+      adminInfo.info.email,
+      adminInfo.info.role,
       id,
     ];
 
-    await executeQuery(query, params);
+    if (adminInfo.info.role) {
+      const existingAdmin = await this.getAll();
+      const rootAdmin = existingAdmin.find((admin) => admin.role === "root");
+      console.log(rootAdmin);
+      if (rootAdmin.role === adminInfo.info.role) {
+        return "Root User Already Exists...";
+      }
+    }
 
+    await executeQuery(query, params);
     return await this.getAll(); // Ensure `this.getAll()` is accessible
   };
 
@@ -65,54 +54,75 @@ class AdminQuery {
     return result;
   };
   deleteOne = async (id) => {
-    const query = "DELETE FROM user WHERE id=?";
+    const existingAdmin = await this.getOne(id);
+    console.log(existingAdmin);
+    const existingRole = existingAdmin[0].role;
+    if (existingRole === "root") {
+      return "Root User Cant Removable...";
+    }
+    const query = "DELETE FROM admins WHERE id=?";
     const params = [id];
 
     await executeQuery(query, params);
 
     return await this.getAll(); // Ensure `this.getAll()` is accessible
   };
-  updateOne = async (id, userInfo) => {
-    const query = `UPDATE skills SET
-           name,
-           surname, 
-           phone, 
-           role, 
-           email, 
-           tcNumber, 
-           bornDate,
-           img, 
-           targetUrl, 
-           shortUrl, 
-           qrPath
+
+  login = async (loginInfo) => {
+    const existingAdmins = await this.getAll();
+    console.log(existingAdmins);
+    const foundedAdmin = existingAdmins.find(
+      (admin) => admin.username === loginInfo.username
+    );
+    if (!foundedAdmin) {
+      return "Admin not found !";
+    }
+    const isEqual = bcryptjs.compareSync(
+      loginInfo.password,
+      foundedAdmin.password
+    );
+
+    if (!isEqual) {
+      return "Incorrect password !";
+    }
+
+    return foundedAdmin; // Ensure `this.getAll()` is accessible
+  };
+  updateOne = async (adminInfo) => {
+    const passwordQueryPart = adminInfo.info.password ? "password=?," : "";
+    const query = `UPDATE admins SET
+           username=?,
+           ${passwordQueryPart}
+           email=?,
+           role=?
            WHERE id=?`;
+
+    const existingUser = await this.getOne(adminInfo.id);
+    const existingPassword = existingUser[0].password;
+    // Determine if the password has changed
+    let updatedPassword = null;
+    if (adminInfo.info.password) {
+      const isEqual = bcryptjs.compareSync(
+        adminInfo.info.password,
+        existingPassword
+      );
+      updatedPassword = isEqual
+        ? existingPassword
+        : bcryptjs.hashSync(adminInfo.info.password, 12);
+    }
+
+    // Prepare the parameters for the query
     const params = [
-      userInfo.name,
-      userInfo.surname,
-      userInfo.phone,
-      userInfo.role,
-      userInfo.email,
-      userInfo.tcNumber,
-      userInfo.bornDate,
-      userInfo.img,
-      formattedUrl,
-      userInfo.shortUrl,
-      qrPath,
-      id,
+      adminInfo.info.username,
+      ...(adminInfo.info.password ? [updatedPassword] : []),
+      adminInfo.info.email,
+      adminInfo.info.role,
+      adminInfo.id,
     ];
 
-    const response = await dbResponseHandler(
-      null,
-      201,
-      "update",
-      query,
-      params,
-      skillsModel()
-    );
-    if (response.status) {
-      return this.getAll();
-    }
-    return response;
+    await executeQuery(query, params);
+
+    return this.getAll();
   };
 }
 

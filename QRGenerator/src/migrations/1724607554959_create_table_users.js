@@ -1,8 +1,8 @@
 module.exports = {
-    name: 'Create User Table',
+    name: 'Create Users Table',
     up: (conn, cb) => {
         const query = `
-            CREATE TABLE IF NOT EXISTS user (
+            CREATE TABLE IF NOT EXISTS users (
                 id VARCHAR(255) PRIMARY KEY,
                 name VARCHAR(255), 
                 surname VARCHAR(255),
@@ -19,16 +19,16 @@ module.exports = {
         `;
         conn.query(query, (error, results) => {
             if (error) {
-                console.error('Error creating user table:', error);
+                console.error('Error creating users table:', error);
             }
             cb(error, results);
         });
     },
     down: (conn, cb) => {
-        const query = 'DROP TABLE IF EXISTS user;';
+        const query = 'DROP TABLE IF EXISTS users;';
         conn.query(query, (error, results) => {
             if (error) {
-                console.error('Error dropping user table:', error);
+                console.error('Error dropping users table:', error);
             }
             cb(error, results);
         });

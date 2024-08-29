@@ -1,0 +1,143 @@
+import React, { useEffect, useState } from 'react';
+import { AdminBox, CustomButton } from '@src/components';
+import './style.css';
+import { useFormHook } from '@src/hooks';
+import { useAppDispatch, useAppSelector } from '@src/store/hook';
+import { RootState } from '@src/store/store';
+import { requestApi } from '@src/store';
+import { LoadingPage } from '@src/page/loading';
+import { NotAuthPage } from '@src/error';
+import { useNavigate } from 'react-router-dom';
+
+const AdminPage = () => {
+  const dispatch = useAppDispatch();
+  const { functions: { setReducerInfo } } = useFormHook();
+  const { adminInfo, adminInfoArray, processInfo, adminRoleInfo } = useAppSelector((state: RootState) => state.info.infos);
+  const { loading, status, process } = useAppSelector((state: RootState) => state.info.response);
+
+  const [dataFetched, setDataFetched] = useState(false);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = event.target as HTMLInputElement;
+    setReducerInfo('admin', name, value);
+  };
+
+  useEffect(() => {
+    dispatch(requestApi({
+      endpoint: `/api/authorized/admin/getAll`,
+      method: 'GET',
+      process: 'getAll',
+      data: adminInfo,
+      imageFile: null,
+    }));
+  }, [adminRoleInfo]);
+
+  useEffect(() => {
+    if (!loading) {
+      setDataFetched(true);
+    }
+  }, [loading]);
+
+
+  const styleButton = {
+    width: `100%`,
+    height: `75%`,
+    backgroundColor: processInfo === 'updateOne' ? `#5656ef` : `#218838`,
+    padding: `0px 10px`,
+    fontSize: `100%`,
+    color: `white`
+  };
+
+
+  const navigate = useNavigate();
+  const toUserManagement = () => {
+    return navigate('/');
+  }
+
+  if (loading) {
+    return <LoadingPage />;
+  }
+  if (!dataFetched) {
+    return <LoadingPage />;
+  }
+  if (status === false && process === 'authorization' && adminRoleInfo !== 'root') {
+    console.log('status:', status);
+    console.log('process:', process);
+    console.log('adminRoleInfo:', adminRoleInfo);
+
+    return <NotAuthPage />;
+  }
+  return (
+    <div className="admin-panel">
+      <div>
+        <h1>Admin Control Panel</h1>
+        <button className='directionButton' onClick={toUserManagement}>Manage User</button>
+      </div>
+      <div className="admin-form">
+        <input
+          type="text"
+          name='username'
+          placeholder="Username"
+          value={adminInfo.info.username}
+          onChange={handleChange}
+        />
+        <input
+          type="email"
+          name='email'
+          placeholder="Email"
+          value={adminInfo.info.email}
+          onChange={handleChange}
+        />
+        <input
+          type="password"
+          name='password'
+          placeholder="Password"
+          value={adminInfo.info.password}
+          onChange={handleChange}
+        />
+        {
+          adminInfo.info.role === 'root' ? <input
+            type="role"
+            name='role'
+            placeholder="Role"
+            value={adminInfo.info.role}
+            readOnly
+          /> :
+            <select
+              name='role'
+              value={adminInfo.info.role}
+              onChange={handleChange}
+            >
+              <option value="" disabled>Select One</option>
+              <option value="branch">branch</option>
+              <option value="root">root</option>
+            </select>
+        }
+
+        <div className='add-button'>
+          <CustomButton
+            inheritor='admin'
+            style={styleButton}
+            process={processInfo === 'updateOne' ? 'updateOne' : 'addOne'}
+            content={processInfo === 'updateOne' ? 'Update Admin' : 'Sign Admin'}
+            type={'request'}
+            method={processInfo === 'updateOne' ? 'PUT' : 'POST'}
+            param={''}
+          />
+        </div>
+      </div>
+      <div className="admin-list">
+        {adminInfoArray.map(adminInfo => (
+          <AdminBox
+            key={adminInfo.id}
+            adminInfo={adminInfo}
+          />
+        ))}
+      </div>
+    </div>
+  );
+
+
+};
+
+export default AdminPage;

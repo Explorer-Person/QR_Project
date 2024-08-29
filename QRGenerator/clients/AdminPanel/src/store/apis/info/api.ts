@@ -1,13 +1,13 @@
 import { axiosInstance } from '@src/store';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { UserInfo } from '@src/interfaces';
+import { AdminInfo, LoginInfo, UserInfo } from '@src/interfaces';
 import { downloadQR } from '@src/utils';
 
-export const userApi = createAsyncThunk(
-  'info/user',
+export const requestApi = createAsyncThunk(
+  'info/request',
   async (
     { endpoint, data, method, headers = {}, process, imageFile }: 
-    { endpoint: string, data: UserInfo, method: string, headers?: Record<string, string>, process: string, imageFile?: File | null | Blob },
+    { endpoint: string, data: UserInfo | AdminInfo | LoginInfo, method: string, headers?: Record<string, string>, process: string, imageFile?: File | null | Blob },
     { rejectWithValue }
   ) => {
     try {
@@ -26,7 +26,7 @@ export const userApi = createAsyncThunk(
         requestData = formData;
       } else {
         // If no file, send the data as JSON
-        requestData = data;
+        requestData = { data: data};
         headers['Content-Type'] = 'application/json'; // Set Content-Type for JSON
       }
 
@@ -39,7 +39,7 @@ export const userApi = createAsyncThunk(
         method: method,
         data: requestData,
         responseType: process === 'download' ? 'blob' : 'json',
-        // withCredentials: true,
+        withCredentials: true,
       });
 
       if (process === 'download') {

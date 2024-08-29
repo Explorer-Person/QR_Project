@@ -1,3 +1,3 @@
-const AdminQuery = require('./query');
+const Queries = require('./query');
 
-module.exports = {AdminQuery}
+module.exports = Queries

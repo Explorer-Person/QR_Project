@@ -1,3 +1,3 @@
-import { UserInfo, InfoProp, FileInfo, DataProp, RequestApiProps, RegularResponse, StateResponse, StyleProps, ButtonInfo, } from "./main";
+import { AdminInfo, LoginInfo, ValidationErrorProps, UserInfo, InfoProp, FileInfo, DataProp, RequestApiProps, RegularResponse, StateResponse, StyleProps, ButtonInfo, } from "./main";
 
-export type {UserInfo, InfoProp, FileInfo, DataProp, RequestApiProps, RegularResponse, StateResponse, StyleProps, ButtonInfo, }
+export type {AdminInfo, LoginInfo, ValidationErrorProps, UserInfo, InfoProp, FileInfo, DataProp, RequestApiProps, RegularResponse, StateResponse, StyleProps, ButtonInfo, }

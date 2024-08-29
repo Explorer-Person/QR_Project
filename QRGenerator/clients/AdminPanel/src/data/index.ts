@@ -1,3 +1,3 @@
-import {userInfo} from './main'
+import {userInfo, adminInfo, loginInfo} from './main'
 
-export {userInfo}
+export {userInfo, adminInfo, loginInfo}

@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { userReducer} from './slices';
+import { infoReducer} from './slices';
 
 export const store = configureStore({
   reducer: {
-    user: userReducer
+    info: infoReducer,
     //[setAuthStatus.reducerPath]: apiSlice.reducer,
   },
   //middleware: (getDefaultMiddleware) =>

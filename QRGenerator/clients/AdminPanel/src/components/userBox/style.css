@@ -23,15 +23,14 @@
 .user-box h3 {
     width: 100%;
     margin-top: 0;
-    font-size: 20px; /* Slightly larger for modern feel */
+    font-size: 18px; /* Adjusted for smaller screens */
     color: #333;
     font-weight: bold;
 }
 
 .info-container {
     width: 100%;
-    margin: 0% 0;
-
+    margin: 0;
     padding-bottom: 2px;
     display: flex;
     flex-wrap: wrap; /* Wraps the info on smaller screens */
@@ -39,17 +38,19 @@
 }
 
 .info-container p {
-    font-size: 14px;
+    font-size: 12px; /* Downsized for smaller screens */
     color: #666;
     flex: 1 1 40%; /* Flex basis allows p elements to wrap */
+    margin: 0; /* Ensures no extra space around paragraphs */
 }
 
-.info-container .label{
+.info-container .label {
     text-decoration: underline;
     font-weight: 500;
 }
+
 .info-container .info {
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .img-container {
@@ -61,22 +62,25 @@
 }
 
 .img-container img {
-    width: 100px;
-    height: 100px;
+    width: 80px; /* Downsized for smaller screens */
+    height: 80px; /* Downsized for smaller screens */
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 20px;
+    margin-right: 10px; /* Reduced margin for smaller screens */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds depth to the image */
 }
 
 .qr-btn {
     background: linear-gradient(45deg, #4CAF50, #8BC34A); /* Gradient for modern look */
     color: #fff;
-    padding: 8px 16px;
+    padding: 6px 12px; /* Reduced padding for smaller screens */
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    width: 100%; /* Full width on smaller screens */
+    text-align: center;
 }
 
 .qr-btn:hover {
@@ -87,12 +91,13 @@
     width: 100%;
     background: linear-gradient(45deg, #FF9800, #FF5722); /* Gradient for the button */
     color: #fff;
-    padding: 10px 20px;
+    padding: 8px 16px; /* Reduced padding for smaller screens */
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
     transition: background-color 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .see-details-btn:hover {
@@ -100,38 +105,44 @@
 }
 
 .detail-box {
-    margin: 2% 1%;
+    margin: 1% 0; /* Adjusted for smaller screens */
     display: flex;
-    gap: 12%;
-    padding: 10px;
+    flex-direction: column; /* Ensure items stack vertically */
+    gap: 5%; /* Reduced gap for smaller screens */
+    padding: 8px; /* Reduced padding for smaller screens */
     background-color: #fafafa;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: max-height 0.3s ease-in-out;
 }
 
-.detail-box {
-    margin: 5px 0%;
-    font-size: 14px;
-    color: #666;
-}
-
-.detail-box .label{
+.detail-box .label {
     text-decoration: underline;
     font-weight: 500;
 }
+
 .detail-box .info {
-    text-decoration:none;
+    text-decoration: none;
 }
 
+.confButtons{
+    display: flex;
+    height: 60px;
+    gap: 5px;
+}
 @media (max-width: 768px) {
     .user-box {
         flex-direction: column;
         height: auto;
     }
-
+    
     .img-container img {
         margin: 0 auto 20px; /* Center image on small screens */
+    }
+    .confButtons{
+        display: flex;
+        height: 60px;
+        gap: 2px;
     }
 
     .info-container p {
@@ -145,6 +156,70 @@
     }
 
     .see-details-btn {
-        margin-top: 20px;
+        margin-top: 1px;
+        margin-bottom: 1px;
+    }
+    .detail-container{
+        margin-bottom: 25px;
     }
 }
+
+
+@media (max-width: 500px) {
+    
+    .user-box {
+        padding: 15px; /* Reduced padding for smaller screens */
+    }
+
+    .confButtons{
+        display: flex;
+        height: 50px;
+        font-size: 10px;
+        margin-bottom: 10%;
+    }
+    .user-box h3 {
+        font-size: 16px; /* Further reduced font size for smaller screens */
+    }
+    .info-container div{
+        width: 100%;
+        text-align: center;
+    }
+    .info-container p {
+        font-size: 12px; /* Further downsized text for smaller screens */
+    }
+
+    .img-container img {
+        width: 60px; /* Further downsized image */
+        height: 60px; /* Further downsized image */
+        margin-right: 5px; /* Further reduced margin */
+    }
+
+    .qr-btn, .see-details-btn {
+        padding: 6px 12px; /* Reduced padding */
+    }
+}
+
+@media (max-width: 325px) {
+    .detail-box{
+        position: relative;
+        margin-top: 0;
+    }
+    .detail-box div p{
+      font-size: 10px;
+      width: 100%;
+      margin: 2% 0%; 
+    }
+    .detail-box div{
+        text-align: center;
+    }
+    .confButtons{
+        display: block;
+        height: 50px;
+        font-size: 10px;
+        margin-bottom: 10%;
+    }
+    .confButtons div{
+        margin-top: 2px;
+    }
+}
+

@@ -1,3 +1,4 @@
-const {AdminQuery} = require('./admin');
+const AdminQueries = require('./admin');
+const UserQueries = require('./user');
 
-module.exports = {AdminQuery}
+module.exports = {AdminQueries, UserQueries}

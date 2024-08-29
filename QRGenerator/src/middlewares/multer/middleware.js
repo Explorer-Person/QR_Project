@@ -34,19 +34,34 @@ function checkFileType(file, cb) {
   }
 }
 
-// Route to handle file upload
+const { sendResponse } = require("@handlers");
+
 middleware.use((req, res, next) => {
   upload(req, res, (err) => {
     if (err) {
-      res.status(400).send({ message: err });
+       return sendResponse(
+        res,
+        {fileError: err},
+        "error",
+        false,
+        400
+      );
     } else {
-      if (req.file == undefined) {
-        res.status(400).send({ message: 'No file selected!' });
-      } else {
-        next();
+      if(!req.file && !req.body.data.info.img){
+        return sendResponse(
+          res,
+          'File is required!',
+          "error",
+          false,
+          400
+        );
       }
+
+      req.body.data = req.file ? JSON.parse(req.body.data) : req.body.data;
+      next();
     }
   });
 });
+
 
 module.exports = middleware;

@@ -6,7 +6,7 @@ export interface UserInfo {
     phone: string;
     role: string;
     email: string;
-    tcNumber: string; 
+    tcNumber: string;
     bornDate: string;
     img: FileInfo | Blob | File | null;
     targetUrl: string;
@@ -32,23 +32,39 @@ export interface RequestApiProps {
   headers?: Record<string, string>;
 }
 
-
 export interface StateResponse {
-    data: ResponseDataProps;
-    process: string;
-    status: boolean;
-    loading: boolean | null;
-    error: string[];
-    statusCode: number | null;
- }
- export type ResponseDataProps = MediaSource | Blob | null | string | FileInfo | UserInfo[] | UserInfo;
- export interface RegularResponse {
-    statusCode: number;
-    process: string;
-    status: boolean;
-    data: ResponseDataProps;
+  data: ResponseDataProps;
+  process: string;
+  status: boolean;
+  loading: boolean | null;
+  error: string[] | string | ValidationErrorProps[];
+  statusCode: number | null;
+}
+export type ResponseDataProps =
+  | MediaSource
+  | Blob
+  | null
+  | string
+  | FileInfo
+  | UserInfo[]
+  | UserInfo
+  | AdminInfo
+  | AdminInfo[]
+  | LoginInfo;
+export interface RegularResponse {
+  statusCode: number;
+  process: string;
+  status: boolean;
+  data: ResponseDataProps;
 }
 
+export interface ValidationErrorProps {
+  type: string;
+  value: string;
+  msg: string;
+  path: string;
+  location: string;
+}
 
 export interface StyleProps {
   backgroundColor: string;
@@ -64,10 +80,27 @@ export interface ButtonInfo {
   process: string;
   buttonType: string;
   param: string;
+  inheritor: string;
 }
 
 export interface FileInfo {
   fileName: string;
   filePath: string;
   fileData: Blob | MediaSource | File | null | string;
+}
+
+export interface LoginInfo {
+  username: string;
+  password: string;
+}
+
+export interface SignupInfo {
+  username: string;
+  password: string;
+  email: string;
+}
+
+export interface AdminInfo {
+  id: string;
+  info: { username: string; password: string; email: string; role: string };
 }
