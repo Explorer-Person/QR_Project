@@ -24,7 +24,7 @@ app.use(auth.authorize_check);
 app.use("/api", routes);
 
 app.use(express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
-app.use('/adminPanel', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
+app.use('/adminPanel/*', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/UserInfoPanel/dist', 'index.html'));
