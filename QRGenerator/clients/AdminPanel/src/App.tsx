@@ -36,15 +36,12 @@ function App() {
     <div>
       <GlobalErrorBoundary>
         <AlertConf />
-
         <Routes>
           <Route path='/' element={<MainPage />} />
           <Route path='/adminOperations' element={<AdminPage />} />
           <Route path='/*' element={<NotFoundPage />} />
           <Route path='/login' element={<LoginPage />} />
         </Routes>
-
-
       </GlobalErrorBoundary>
 
     </div>

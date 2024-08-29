@@ -8,7 +8,7 @@ import { RootState } from '@src/store/store';
 
 const LoginPage: React.FC = () => {
   const { functions: { setReducerInfo } } = useFormHook();
-  const { loading, status } = useAppSelector((state: RootState) => state.info.response)
+  const { loading, status, process } = useAppSelector((state: RootState) => state.info.response)
   const handleChange = (event:React.ChangeEvent<HTMLInputElement>) =>{
     const {name, value} = event.target as HTMLInputElement;
     setReducerInfo('login', name, value);
@@ -25,7 +25,7 @@ const LoginPage: React.FC = () => {
   
 
   
-  if(status === true && !loading){
+  if(status === true && process === 'authorization' && !loading){
     return <NotFoundPage/>
   }
   return (
