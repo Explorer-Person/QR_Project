@@ -13,7 +13,7 @@ function App() {
   const { adminInfo } = useAppSelector((state: RootState) => state.info.infos)
   const navigate = useNavigate()
   useEffect(() => {
-    if(loading === false){
+    if (loading === false) {
       dispatch(requestApi({
         endpoint: `/api/authorize`,
         method: 'GET',
@@ -24,7 +24,7 @@ function App() {
     }
   }, []);
   useEffect(() => {
-    if(loading === false && process === 'login'){
+    if (loading === false && process === 'login') {
       if (process === 'login' && status === true) {
         navigate('/');
       } else if (process === 'login' && status === false) {
@@ -36,14 +36,14 @@ function App() {
     <div>
       <GlobalErrorBoundary>
         <AlertConf />
-        {
-            <Routes>
-              <Route path='/' element={<MainPage />} />
-              <Route path='/adminOperations' element={<AdminPage />} />
-              <Route path='/*' element={<NotFoundPage />} />
-              <Route path='/login' element={<LoginPage />} />
-            </Routes>
-        }
+
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+          <Route path='/adminOperations' element={<AdminPage />} />
+          <Route path='/*' element={<NotFoundPage />} />
+          <Route path='/login' element={<LoginPage />} />
+        </Routes>
+
 
       </GlobalErrorBoundary>
 
