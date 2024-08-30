@@ -26,10 +26,11 @@ let sess = {
   saveUninitialized: true,
   store: store,
   cookie: {
+    domain: process.env.CLIENT_ADMIN,
     secure: process.env.NODE_ENV === 'production', // Ensures the cookie is only used over HTTPS
     httpOnly: true, // Ensures the cookie is sent only via HTTP(S), not accessible via client-side JavaScript
     maxAge: 1000 * 60 * 60 * 1, // 1 hour
-    sameSite: none, // Adjust this based on your needs (None, Lax, Strict)
+    sameSite: 'none', // Adjust this based on your needs (None, Lax, Strict)
   },
 };
 
