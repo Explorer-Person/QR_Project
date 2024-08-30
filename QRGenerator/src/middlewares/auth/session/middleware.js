@@ -33,9 +33,8 @@ let sess = {
   },
 };
 
-if (middleware.get('env') === 'production') {
   middleware.set('trust proxy', 1); // trust first proxy
-}
+
 
 middleware.use(session(sess));
 
