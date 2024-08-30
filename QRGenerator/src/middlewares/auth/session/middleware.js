@@ -29,13 +29,12 @@ let sess = {
     secure: middleware.get('env') === 'production', // Ensures the cookie is only used over HTTPS
     httpOnly: true, // Ensures the cookie is sent only via HTTP(S), not accessible via client-side JavaScript
     maxAge: 1000 * 60 * 60 * 1, // 1 hour
-    sameSite: 'none', // Adjust this based on your needs (None, Lax, Strict)
+    same_site: 'none', // Adjust this based on your needs (None, Lax, Strict)
   },
 };
 
 if (middleware.get('env') === 'production') {
   middleware.set('trust proxy', 1); // trust first proxy
-  sess.cookie.secure = true; // serve secure cookies
 }
 
 middleware.use(session(sess));
