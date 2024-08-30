@@ -10,6 +10,7 @@ const corsOptions = {
   ], // Only allow these origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  exposedHeaders: ["set-cookie"],
   credentials: true, // Allow credentials like cookies
   optionsSuccessStatus: 204 // Response status for successful OPTIONS requests
 };
