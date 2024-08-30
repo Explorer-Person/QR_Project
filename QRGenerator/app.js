@@ -35,6 +35,12 @@ app.get('*', (req, res) => {
 app.get('/adminPanel/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
 });
+app.get('/adminPanel/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
+});
+app.get('/adminPanel/adminOperations', (req, res) => {
+  res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
+});
 
 
 
