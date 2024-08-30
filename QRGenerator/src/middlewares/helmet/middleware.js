@@ -15,11 +15,27 @@ middleware.use(helmet({
         process.env.CLIENT_ADMIN,  // Allow images from the admin client domain
         process.env.CLIENT_USER,   // Allow images from the user client domain
         `${process.env.VITE_ENV_SERVER_URL}/api/user/getFile`,  // Allow images from your API endpoint
-        `${process.env.VITE_ENV_SERVER_URL}/userPanel/api/user/getFile`,  // Allow images from your API endpoint
         `${process.env.VITE_ENV_SERVER_URL}/adminPanel/api/user/getFile`,  // Allow images from your API endpoint
       ],
-      "style-src": ["'self'", "'unsafe-inline'", "trusted-cdn.com"], // Allow inline styles and styles from trusted CDNs
+      "style-src": [
+        "'self'", 
+        "'unsafe-inline'", 
+        "trusted-cdn.com", 
+        "https://cdnjs.cloudflare.com", // Explicitly allow FontAwesome CDN
+      ],
+      "style-src-elem": [
+        "'self'", 
+        "'unsafe-inline'", 
+        "trusted-cdn.com", 
+        "https://cdnjs.cloudflare.com", // Explicitly allow FontAwesome CDN
+      ],
+      "font-src": ["'self'", "https:", "data:", "trusted-cdn.com", "https://cdnjs.cloudflare.com"], // Allow fonts from trusted sources
       "connect-src": ["'self'", process.env.CLIENT_ADMIN, process.env.CLIENT_USER], // Allow connections only to specific origins
+      "media-src": ["'self'", "trusted-cdn.com"], // Allow media from trusted sources (if applicable)
+      "object-src": ["'none'"], // Disallow Flash and other plugins
+      "frame-ancestors": ["'none'"], // Prevent the site from being framed
+      "base-uri": ["'self'"], // Restrict the base tag to 'self'
+      "form-action": ["'self'"], // Restrict form submissions to 'self'
     },
   },
   referrerPolicy: { policy: "no-referrer" }, // No referrer information is sent
