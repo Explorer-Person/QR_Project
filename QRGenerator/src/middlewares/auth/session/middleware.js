@@ -26,6 +26,7 @@ let sess = {
   saveUninitialized: true,
   store: store,
   cookie: {
+    path: '/',
     secure: process.env.NODE_ENV === 'production', // Ensures the cookie is only used over HTTPS
     httpOnly: true, // Ensures the cookie is sent only via HTTP(S), not accessible via client-side JavaScript
     maxAge: 1000 * 60 * 60 * 1, // 1 hour
