@@ -31,8 +31,14 @@ app.get('*', (req, res) => {
 });
 
 app.get('/adminPanel/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
+  let url = path.join(__dirname, 'clients/AdminPanel/dist', 'index.html');
+  if (!url.startsWith('/app/')) // we're on local windows
+    url = url.substring(1);
+  res.sendFile(url);
 });
+// app.get('/*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
+// });
 
 
 // Global error handler middleware
