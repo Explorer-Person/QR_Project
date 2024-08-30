@@ -38,6 +38,10 @@ app.get('/adminPanel/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
 });
 
+app.get('/adminPanel/login/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
+});
+
 
 // Global error handler middleware
 app.use((err, req, res, next) => {
