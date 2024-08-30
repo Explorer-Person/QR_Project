@@ -17,6 +17,7 @@ const store = new MySQLStore({}, pool);
 
 const middleware = express();
 
+
 let sess = {
   genid: function (req) {
     return genuuid();
@@ -25,11 +26,9 @@ let sess = {
   resave: false,
   saveUninitialized: true,
   store: store,
+  proxy: true,
   cookie: {
-    domain: process.env.CLIENT_ADMIN,
     secure: process.env.NODE_ENV === 'production', // Ensures the cookie is only used over HTTPS
-    httpOnly: true, // Ensures the cookie is sent only via HTTP(S), not accessible via client-side JavaScript
-    maxAge: 1000 * 60 * 60 * 1, // 1 hour
     sameSite: 'none', // Adjust this based on your needs (None, Lax, Strict)
   },
 };
@@ -37,7 +36,6 @@ let sess = {
 if(process.env.NODE_ENV === 'production' ){
   middleware.set('trust proxy', 1); // trust first proxy
 }
-
 
 middleware.use(session(sess));
 
