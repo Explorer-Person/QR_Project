@@ -25,22 +25,16 @@ app.use("/api", routes);
 
 app.use(express.static(path.join(__dirname, 'clients/UserInfoPanel/dist')));
 app.use('/adminPanel', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
+app.use('/adminPanel/login', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
+app.use('/adminPanel/adminOperations', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
+app.use('/adminPanel/*', express.static(path.join(__dirname, 'clients/AdminPanel/dist')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/UserInfoPanel/dist', 'index.html'));
 });
 
 
-app.get('/adminPanel', (req, res) => {
-  res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
-});
 app.get('/adminPanel/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
-});
-app.get('/adminPanel/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
-});
-app.get('/adminPanel/adminOperations', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
 });
 
