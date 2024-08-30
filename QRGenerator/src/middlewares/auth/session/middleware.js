@@ -26,9 +26,10 @@ let sess = {
   saveUninitialized: true,
   store: store,
   cookie: {
-    secure: false, // Ensures the cookie is only used over HTTPS
+    secure: middleware.get('env') === 'production', // Ensures the cookie is only used over HTTPS
     httpOnly: true, // Ensures the cookie is sent only via HTTP(S), not accessible via client-side JavaScript
     maxAge: 1000 * 60 * 60 * 1, // 1 hour
+    sameSite: 'Lax', // Adjust this based on your needs (None, Lax, Strict)
   },
 };
 
