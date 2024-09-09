@@ -1,4 +1,19 @@
 
+# This Article Includes:
+- Backend Architecture
+- Clients Architecture
+- Directory Info
+- Project Structure
+- Environment Configuration
+- API Structure
+- Static File Serving
+- Database Management
+- Middleware Implementation
+- Error Handling
+- Validation Logic
+- Session Management
+- Deployment Process
+
 # QRGenerator APP
 
 This document provides a detailed overview of the `QRGenerator` application, its architecture, technologies, configuration, and deployment.
@@ -280,4 +295,24 @@ vite-env.d.ts
 - `validator/`
 
 ---
+# More Info About Architecture
 
+The project follows a **Three-Tier Architecture**:
+
+### Backend:
+- Built using the **MVC (Model-View-Controller)** structure to separate concerns.
+- The **Model** handles database interactions and data logic.
+- The **View** serves static files, which are the pre-built clients (`AdminPanel` and `UserInfoPanel`).
+- The **Controller** manages the request handling, connecting the view and the model.
+
+### Clients:
+- The application has two clients: **AdminPanel** and **UserInfoPanel**.
+- Both clients are built separately using **Vite** and **TypeScript**.
+- These clients are **served statically** from the backend after being built, ensuring they are part of the overall deployment.
+
+### Three-Tier Structure:
+1. **Presentation Layer**: The frontend clients (`AdminPanel` and `UserInfoPanel`) handle user interaction.
+2. **Application Layer**: The backend manages business logic, request routing, and middleware.
+3. **Data Layer**: The backend interacts with the database, utilizing models and queries to handle data persistence and retrieval.
+
+This structure ensures a modular and maintainable codebase where the clients and backend are well-separated but seamlessly integrated.
