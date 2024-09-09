@@ -109,12 +109,11 @@ The application uses environment variables for sensitive data, such as API URLs 
 
 ### Custom Port Assignment
 
-By default, the application assigns specific static ports for both clients:
+ Assigned specific static ports for both clients:
 
-- **UserInfoPanel**: Runs on a custom port.
-- **AdminPanel**: Runs on a separate custom port.
+- **UserInfoPanel**: Runs on a 5186 port.
+- **AdminPanel**: Runs on a 5189 port.
 
-This ensures that the clients do not run on default ports like `5174` or `5175`.
 
 ## Security
 
