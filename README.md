@@ -138,8 +138,49 @@ The app employs various security best practices, including:
 - **Session Management**: Sessions are managed securely using session tokens.
 - **CORS Policy**: Allows specific origins (`CLIENT_USER`, `CLIENT_ADMIN`) to interact with the backend, enforcing strict domain control.
 
+## Using App in Dev
+```cmd  /clients/AdminPanel and /clients/UserInfoPanel
+  npm i 
+  npm run dev
+  ```
+ also configure and create .env files on root directory of app and add
+ ```.env 
+  VITE_ENV_SERVER_URL= your_server_host_url
+  ```
+ for both client app
+
+In backend: 
+create .env in root /QRGenerator
+ ```.env 
+  VITE_ENV_SERVER_URL= your_server_host_url
+
+  DB_HOST= ...
+  DB_USER= ...
+  DB_PASSWORD= ...
+  DB_NAME= ...
+
+  PORT= ...
+
+  SESSION_SECRET= ...
+
+  NODE_ENV= production_or_development
+
+  CLIENT_ADMIN= ...
+  CLIENT_USER= ...
+  VITE_ENV_SERVER_URL= ...
+  ```
+ and also there
+ ```cmd
+  npm i
+  npm start
+  # also you can install nodemon globally with 'npm i nodemon -g --save' and start with
+  nodemon app.js
+   
+  ```
+
 ---
 
+---
 ## Project Directory: `\QRGenerator`
 
 ### Root Files:
