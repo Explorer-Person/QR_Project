@@ -1,6 +1,3 @@
-Certainly! Here's a more detailed and structured markdown for the `QRGenerator` app, including information about the technology stack, configuration, deployment, and more:
-
----
 
 # QRGenerator APP
 
@@ -128,5 +125,3 @@ The app employs various security best practices, including:
 - **CORS Policy**: Allows specific origins (`CLIENT_USER`, `CLIENT_ADMIN`) to interact with the backend, enforcing strict domain control.
 
 ---
-
-This version offers more comprehensive insight into the project, covering critical aspects like structure, file uploads, API, session management, and deployment on Heroku. Let me know if you need more details!
