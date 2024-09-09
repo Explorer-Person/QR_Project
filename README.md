@@ -124,3 +124,164 @@ The app employs various security best practices, including:
 - **CORS Policy**: Allows specific origins (`CLIENT_USER`, `CLIENT_ADMIN`) to interact with the backend, enforcing strict domain control.
 
 ---
+
+Here’s the updated project directory structure as per your provided details:
+
+---
+
+## Project Directory: `\QRGenerator`
+
+### Root Files:
+```
+.env
+.gitignore
+app.js
+module-alias.js
+package-lock.json
+package.json
+Procfile
+```
+
+### Folders:
+- `clients/`
+- `src/`
+
+---
+
+### Folder: `clients/`
+
+#### Subfolders:
+- `AdminPanel/`
+- `UserInfoPanel/`
+
+---
+
+### Folder: `clients/AdminPanel/`
+
+#### Root Files:
+```
+.babelrc
+.env
+.eslintrc.cjs
+.gitignore
+index.html
+package-lock.json
+package.json
+README.md
+tsconfig.json
+tsconfig.node.json
+tsconfig.node.tsbuildinfo
+vite.config.d.ts
+vite.config.js
+vite.config.ts
+```
+
+#### Subfolders:
+- `dist/`
+- `public/`
+- `src/`
+
+---
+
+### Folder: `clients/AdminPanel/src/`
+
+#### Root Files:
+```
+App.tsx
+main.tsx
+vite-env.d.ts
+```
+
+#### Subfolders:
+- `assets/`
+- `components/`
+- `data/`
+- `error/`
+- `hooks/`
+- `interfaces/`
+- `layouts/`
+- `page/`
+- `store/`
+- `utils/`
+
+---
+
+### Folder: `clients/AdminPanel/src/store/`
+
+#### Files:
+```
+hook.ts
+index.ts
+store.ts
+```
+
+#### Subfolders:
+- `apis/`
+- `slices/`
+
+---
+
+### Folder: `clients/UserInfoPanel/`
+
+#### Root Files:
+```
+.babelrc
+.env
+.gitignore
+eslint.config.js
+index.html
+package-lock.json
+package.json
+README.md
+tsconfig.json
+tsconfig.node.json
+tsconfig.node.tsbuildinfo
+vite.config.d.ts
+vite.config.js
+vite.config.ts
+```
+
+#### Subfolders:
+- `dist/`
+- `public/`
+- `src/`
+
+---
+
+### Folder: `clients/UserInfoPanel/src/`
+
+#### Root Files:
+```
+App.tsx
+main.tsx
+vite-env.d.ts
+```
+
+#### Subfolders:
+- `assets/`
+- `data/`
+- `error/`
+- `interfaces/`
+- `layouts/`
+- `page/`
+
+---
+
+### Folder: `src/`
+
+#### Subfolders:
+- `controllers/`
+- `db/`
+- `handlers/`
+- `middlewares/`
+- `migrations/`
+- `models/`
+- `qrs/`
+- `queries/`
+- `routes/`
+- `uploads/`
+- `utils/`
+- `validator/`
+
+---
+
