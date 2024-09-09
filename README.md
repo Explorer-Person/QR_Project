@@ -125,10 +125,6 @@ The app employs various security best practices, including:
 
 ---
 
-Here’s the updated project directory structure as per your provided details:
-
----
-
 ## Project Directory: `\QRGenerator`
 
 ### Root Files:
