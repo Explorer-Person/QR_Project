@@ -368,28 +368,22 @@ Images:
 
 ![Ekran görüntüsü 2024-09-23 142041](https://github.com/user-attachments/assets/fada1406-34d1-4def-a583-0c950da2f8dc)
 
-![Ekran görüntüsü 2024-09-23 142253](https://github.com/user-attachments/assets/3beb55d9-a394-4c76-b1cb-b5c196658c45)
+![Ekran görüntüsü 2024-09-23 142253](https://github.com/user-attachments/assets/ea43056d-94a8-442d-a1f7-d97646362db8)
 
-![Ekran görüntüsü 2024-09-23 142440](https://github.com/user-attachments/assets/723c4748-3be8-4e93-9e2c-53ba6edd2340)
+![Ekran görüntüsü 2024-09-23 142440](https://github.com/user-attachments/assets/a0c581c8-15c3-4a23-8892-07865682969a)
 
-![Ekran görüntüsü 2024-09-23 142636](https://github.com/user-attachments/assets/a392b9dc-2732-46c2-aab6-d6c63651f8cd)
+![Ekran görüntüsü 2024-09-23 142636](https://github.com/user-attachments/assets/0ff52d61-9ef6-4b52-92e0-e8b6ec9caaa3)
 
-![Ekran görüntüsü 2024-09-23 142710](https://github.com/user-attachments/assets/cc31d099-c014-47dc-87e2-561507c6d232)
+![Ekran görüntüsü 2024-09-24 091156](https://github.com/user-attachments/assets/1eec6421-823e-4c0b-8510-07c0d58d6e20)
 
-![Ekran görüntüsü 2024-09-24 091156](https://github.com/user-attachments/assets/3ccfd5c7-d2e6-4921-8036-9e7e315da438)
+![Ekran görüntüsü 2024-09-23 142710](https://github.com/user-attachments/assets/d53391ba-790d-44df-b276-f0a7c1ae9647)
 
-![Ekran görüntüsü 2024-09-23 142747](https://github.com/user-attachments/assets/3cf4c126-c8be-4bf4-a566-1196af3467d6)
+![Ekran görüntüsü 2024-09-23 142747](https://github.com/user-attachments/assets/768e2c4d-5b59-4fe7-9bb8-29a4434c70d5)
 
-![Ekran görüntüsü 2024-09-23 142821](https://github.com/user-attachments/assets/d08d07f2-1098-4d04-ae5c-c3a4d6d94dda)
+![Ekran görüntüsü 2024-09-23 142821](https://github.com/user-attachments/assets/4c907544-c2e9-43c1-8a0c-c9ee92dac640)
 
-![Ekran görüntüsü 2024-09-23 142834](https://github.com/user-attachments/assets/e325d341-6e30-4234-a6ba-039ca251f2db)
+![Ekran görüntüsü 2024-09-23 142848](https://github.com/user-attachments/assets/ea30999c-c31a-4fe0-b5d8-aac13c8200ae)
 
-![Ekran görüntüsü 2024-09-23 142909](https://github.com/user-attachments/assets/8128ceec-6fe3-4741-b5cf-98db4636df4d)
+![Ekran görüntüsü 2024-09-23 142909](https://github.com/user-attachments/assets/8107c7ec-c627-4767-b11e-4cdf972ab0dd)
 
-![Ekran görüntüsü 2024-09-23 143012](https://github.com/user-attachments/assets/322dce88-b253-4875-80f8-b16b75500831)
-
-
-
-
-
-
+![Ekran görüntüsü 2024-09-23 143012](https://github.com/user-attachments/assets/127dc6f3-0e49-4b89-9507-d1b937fd72f4)
