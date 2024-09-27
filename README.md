@@ -357,3 +357,11 @@ The project follows a **Three-Tier Architecture**:
 3. **Data Layer**: The backend interacts with the database, utilizing models and queries to handle data persistence and retrieval.
 
 This structure ensures a modular and maintainable codebase where the clients and backend are well-separated but seamlessly integrated.
+
+
+
+
+Images: 
+
+![Ekran görüntüsü 2024-09-23 142440](https://github.com/user-attachments/assets/d344f6e5-f007-4b9c-baa4-3d33aa94aeeb)
+
