@@ -363,5 +363,33 @@ This structure ensures a modular and maintainable codebase where the clients and
 
 Images: 
 
+
 ![Ekran görüntüsü 2024-09-23 142440](https://github.com/user-attachments/assets/d344f6e5-f007-4b9c-baa4-3d33aa94aeeb)
+
+![Ekran görüntüsü 2024-09-23 142041](https://github.com/user-attachments/assets/fada1406-34d1-4def-a583-0c950da2f8dc)
+
+![Ekran görüntüsü 2024-09-23 142253](https://github.com/user-attachments/assets/3beb55d9-a394-4c76-b1cb-b5c196658c45)
+
+![Ekran görüntüsü 2024-09-23 142440](https://github.com/user-attachments/assets/723c4748-3be8-4e93-9e2c-53ba6edd2340)
+
+![Ekran görüntüsü 2024-09-23 142636](https://github.com/user-attachments/assets/a392b9dc-2732-46c2-aab6-d6c63651f8cd)
+
+![Ekran görüntüsü 2024-09-23 142710](https://github.com/user-attachments/assets/cc31d099-c014-47dc-87e2-561507c6d232)
+
+![Ekran görüntüsü 2024-09-24 091156](https://github.com/user-attachments/assets/3ccfd5c7-d2e6-4921-8036-9e7e315da438)
+
+![Ekran görüntüsü 2024-09-23 142747](https://github.com/user-attachments/assets/3cf4c126-c8be-4bf4-a566-1196af3467d6)
+
+![Ekran görüntüsü 2024-09-23 142821](https://github.com/user-attachments/assets/d08d07f2-1098-4d04-ae5c-c3a4d6d94dda)
+
+![Ekran görüntüsü 2024-09-23 142834](https://github.com/user-attachments/assets/e325d341-6e30-4234-a6ba-039ca251f2db)
+
+![Ekran görüntüsü 2024-09-23 142909](https://github.com/user-attachments/assets/8128ceec-6fe3-4741-b5cf-98db4636df4d)
+
+![Ekran görüntüsü 2024-09-23 143012](https://github.com/user-attachments/assets/322dce88-b253-4875-80f8-b16b75500831)
+
+
+
+
+
 
