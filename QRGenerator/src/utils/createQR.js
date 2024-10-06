@@ -5,11 +5,11 @@ const path = require("path");
 
 const qrCreator = (url, name) => {
     const qrDir = path.join(__dirname, '../', "qrs");
-    const qrPath = path.join(qrDir, `${name}.png`)
+    const qrPath = path.join(qrDir, `${name.trim()}.png`)
     if (!fs.existsSync(qrDir)) {
       fs.mkdirSync(qrDir, { recursive: true });
     }
-    console.log(qrPath);
+
     QRCode.toFile(qrPath, [{ data: url, mode: "byte" }], (err,res) => {
       if (err) {
           console.error("Error creating QR code:", err);

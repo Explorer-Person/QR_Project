@@ -13,8 +13,8 @@ middleware.use('/api/authorize', async function(req,res,next){
   const queries = new AdminQueries();
   const response = await queries.getOne(req.session.adminId);
   const formattedData = dataFormatter(response);
-  
-  sendResponse(res, {access:formattedData[0].info.role, authorized: 'success'}, 'authorization', isAuth , 200);
+
+  sendResponse(res, {access:formattedData[0].info.role, authorized: 'success'}, 'authorization', true, 200);
 })
 
 module.exports = middleware; 

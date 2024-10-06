@@ -7,7 +7,7 @@ import { RootState } from '@src/store/store';
 
 
 const InputBox = () => {
-
+   
   const { functions: { setReducerInfo, handleFileChange }, datas: { processInfo, userInfo } } = useFormHook();
   const navigate = useNavigate();
   const { status } = useAppSelector((state: RootState) => state.info.response)
@@ -15,6 +15,7 @@ const InputBox = () => {
     const { name, value } = event.target as HTMLInputElement;
     setReducerInfo('user', name, value);
   }
+
   const styleAddButton = {
     width: `75%`,
     height: `50%`,
@@ -156,24 +157,12 @@ const InputBox = () => {
           <label>Target URL:</label>
           <input
             type="url"
-            value={userInfo.info.targetUrl}
+            value={processInfo === 'updateOne' ? userInfo.info.targetUrl : window.location.origin}
             name='targetUrl'
             onChange={handleChange}
             placeholder="Enter the target URL..."
-            className="form-control"
-          />
-        </div>
-
-        <div className="form-element">
-          <label>Short URL:</label>
-          <input
-            type="text"
-            value={userInfo.info.shortUrl}
-            onChange={handleChange}
-            name='shortUrl'
-            placeholder="Enter the short URL..."
-            className="form-control"
-          />
+            className="form-control"       
+          ></input>
         </div>
 
         {/* Button */}

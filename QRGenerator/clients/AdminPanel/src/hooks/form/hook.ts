@@ -65,6 +65,7 @@ const useFormHook = () => {
         const userInfo = userInfoArray.find(
           (userInfo) => userInfo.id === param
         );
+        dispatch(setProcessInfo(process))
         dispatch(setUserInfo(userInfo as UserInfo));
       }
       if(inheritor === 'admin'){

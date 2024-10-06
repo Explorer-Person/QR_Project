@@ -21,7 +21,7 @@ class UserQueries {
     await userModel(); // Ensure this is an async function
     const id = uuidv4();
     const formattedUrl = `${userInfo.info.targetUrl}/${id}`
-    const qrPath = await qrCreator(formattedUrl, userInfo.info.name);
+    const qrPath = await qrCreator(formattedUrl, userInfo.info.tcNumber);
     if (!qrPath) {
       return sendResponse(
         res,

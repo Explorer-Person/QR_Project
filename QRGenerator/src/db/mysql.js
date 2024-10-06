@@ -25,7 +25,8 @@ async function checkDatabaseExists() {
 async function createDatabase() {
     const connection = await pool.getConnection();
     try {
-        await connection.query(`CREATE DATABASE IF NOT EXISTS ?`, [process.env.DB_NAME]);
+        //await connection.query(`CREATE DATABASE IF NOT EXISTS ?`, [process.env.DB_NAME]);
+        await connection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME}`);
         console.log('DB created successfully or already exists');
     } catch (error) {
         console.error("Error creating database:", error);

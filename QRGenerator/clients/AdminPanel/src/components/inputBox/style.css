@@ -89,8 +89,8 @@
 .buttons{
   position: relative;
   margin-top: 2%;
-  right: 10%;
-  width: 25%;
+  left: 35%;
+  width: 30%;
 }
 .buttons div{
   height: 100%;
@@ -143,9 +143,10 @@
     margin-bottom: 5%; /* Ensure enough space below */
   }
   .buttons{
-    margin-left: 20%;
+    position: static;
+    margin-top: 2%;
+    margin-right: 0%;
     width: 100%;
-    text-align: center;
   }
   .buttons div{
     width: 100%;
@@ -214,9 +215,10 @@
   }
 
   .buttons{
-    margin-left: 20%;
+    position: static;
+    margin-top: 2%;
+    margin-right: 0%;
     width: 100%;
-    text-align: center;
   }
   .buttons div{
     width: 100%;

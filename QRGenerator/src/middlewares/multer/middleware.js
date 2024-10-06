@@ -39,6 +39,15 @@ const { sendResponse } = require("@handlers");
 middleware.use((req, res, next) => {
   upload(req, res, (err) => {
     if (err) {
+       if (err.code === 'LIMIT_FILE_SIZE') {
+        return sendResponse(
+          res,
+          'File size can not be above 15MB...',
+          "error",
+          false,
+          400
+        );
+       }
        return sendResponse(
         res,
         {fileError: err},

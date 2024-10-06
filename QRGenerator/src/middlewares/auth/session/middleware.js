@@ -23,14 +23,9 @@ let sess = {
     return genuuid();
   },
   secret: process.env.SESSION_SECRET,
-  resave: false,
+  resave: true,
   saveUninitialized: true,
-  store: store,
-  proxy: true,
-  cookie: {
-    secure: process.env.NODE_ENV === 'production', // Ensures the cookie is only used over HTTPS
-    sameSite: 'none', // Adjust this based on your needs (None, Lax, Strict)
-  },
+  store: store
 };
 
 if(process.env.NODE_ENV === 'production' ){
