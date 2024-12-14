@@ -40,7 +40,7 @@ app.get('/adminPanel/login', (req, res) => {
 app.get('/adminPanel/adminOperations', (req, res) => {
   res.sendFile(path.join(__dirname, 'clients/AdminPanel/dist', 'index.html'));
 });
-
+  
 
 
 // Global error handler middleware

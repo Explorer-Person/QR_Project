@@ -34,9 +34,6 @@ const CustomButton: React.FC<CustomButtonProps> = ({inheritor, param, method, st
     
   };
  
-
-  
-
   return (
     <div className='text-center'>
       <button style={style} onClick={handleClick} type="submit" className="custom-button">

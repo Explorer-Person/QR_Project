@@ -22,7 +22,6 @@ const LoginPage: React.FC = () => {
     color: `white`
   }
 
-  
 
   
   if(status === true && process === 'authorization' && !loading){

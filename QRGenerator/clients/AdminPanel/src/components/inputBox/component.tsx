@@ -44,7 +44,7 @@ const InputBox = () => {
     return date.split('T')[0];
   }
   const toAdminManagement = () => {
-    return navigate('/adminOperations');
+    return navigate('/manage/adminOperations');
   }
   return (
     <div className="input-box">

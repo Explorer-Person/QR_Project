@@ -27,10 +27,6 @@ let sess = {
   saveUninitialized: true,
   store: store,
   proxy: true,
-  cookie: {
-    secure: process.env.NODE_ENV === 'production', // Ensures the cookie is only used over HTTPS
-    sameSite: 'none', // Adjust this based on your needs (None, Lax, Strict)
-  },
 };
 
 if(process.env.NODE_ENV === 'production' ){

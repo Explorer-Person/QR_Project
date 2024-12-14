@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -5,7 +6,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 175vh;
+  margin-bottom: 5%;
 }
 
 .card-container {
@@ -24,12 +26,12 @@ body {
   overflow: hidden;
   width: 80%; /* Now covers 80% of the page */
   max-width: 100%;
-  height: 300px;
+  height: 400px;
   flex-direction: row; /* Default layout */
 }
 
 .profile-image {
-  width: 30%;
+  width: 40%;
   height: 100%;
 }
 .profile-image .displayBox{
@@ -105,14 +107,273 @@ body {
 }
 
 /* Media Queries for responsiveness */
-@media (max-width: 768px) {
+
+@media (max-width: 1280px) {
+
+  .card-container {
+    display: flex;
+    position: absolute;
+    top: 16%;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    width: 100%;
+  }
+  .profile-image {
+    width: 50%;
+    height: 100%;
+  }
+  
+}
+
+@media (max-width: 1025px) {
+
+  .card-container {
+    display: flex;
+    position: absolute;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  .profile-image{
+    width: 100%;
+  }
   .profile-card {
-    flex-direction: column; /* Stack the image and info on smaller screens */
+    display: flex; /* Stack the image and info on smaller screens */
     height: auto;
+    width: 95%;
+    margin-bottom: 25%;
+  }
+  .profile-info{
+    width: 45%;
+    padding-bottom: 5%;
+  }
+  .logo{
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 936px) {
+
+  .card-container {
+    display: flex;
+    position: absolute;
+    top: 3%;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 150%;
+    width: 100%;
+  }
+  .profile-image {
+    width: 130%;
+    height: 100%;
+  }
+  .profile-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    overflow: hidden;
+    width: 95%; /* Now covers 80% of the page */
+    max-width: 100%;
+    height: auto;
+    flex-direction: row; /* Default layout */
+  }
+  .profile-info{
+    width: 100%;
+  }
+  
+}
+
+@media (max-width: 913px) {
+
+  .card-container {
+    display: flex;
+    position: absolute;
+    top: 3%;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    width: 100%;
+  }
+  .profile-image {
+    width: 130%;
+    height: 100%;
+  }
+  .profile-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    overflow: hidden;
+    width: 95%; /* Now covers 80% of the page */
+    max-width: 100%;
+    height: auto;
+    flex-direction: row; /* Default layout */
+  }
+  .profile-info{
+    width: 100%;
+  }
+  
+}
+
+
+
+
+
+
+@media (max-width: 897px) {
+
+  .card-container {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 25%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  .profile-image {
+    width: 100%;
+    height: 100%;
+  }
+  .profile-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    overflow: hidden;
+    width: 100%; /* Now covers 80% of the page */
+    max-width: 100%;
+    height: auto;
+    flex-direction: row; /* Default layout */
+  }
+  
+  
+}
+
+@media (max-width: 885px) {
+
+  .card-container {
+    display: flex;
+    position: absolute;
+    left: 0%;
+    justify-content: center;
+    align-items: center;
+    height: 120%;
+    width: 100%;
+  }
+  .profile-image {
+    width: 100%;
+    height: 100%;
+  }
+  .profile-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    width: 100%; /* Now covers 80% of the page */
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+
+@media (max-width: 855px) {
+
+  .card-container {
+    display: flex;
+    position: absolute;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    width: 100%;
+  }
+  .profile-image {
+    width: 140%;
+    height: 100%;
+  }
+  .profile-info{
+    width: 100%;
+  }
+  .profile-card{
+    display: flex;
+    height: auto;
+    width: 90%;
+  }
+  
+}
+
+@media (max-width: 845px) {
+
+  .card-container {
+    display: flex;
+    position: absolute;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  .profile-image {
+    width: 140%;
+    height: 100%;
+  }
+  .profile-info{
+    width: 100%;
+  }
+  .profile-card{
+    display: flex;
+    height: auto;
+    width: 90%;
+  }
+  
+}
+
+
+@media (max-width: 821px) {
+
+  .card-container {
+    display: flex;
+    position: absolute;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+  }
+  .profile-image {
+    width: 160%;
+    height: 100%;
+  }
+  .profile-info{
+    width: 100%;
+  }
+  .profile-card{
+    display: flex;
+    height: auto;
+    width: 90%;
+  }
+  
+}
+
+@media (max-width: 769px) {
+  .profile-card {
+    display: flex; /* Stack the image and info on smaller screens */
+    height: auto;
+    width: 90%;
   }
   .profile-info {
     width: 100%;
-    padding: 20px; /* Reduced padding for better responsiveness */
     text-align: left;
     display: flex;
     flex-wrap: wrap;
@@ -122,12 +383,11 @@ body {
   .card-container {
     display: flex;
     position: absolute;
-
-    margin: 5% 0;
+    top: 0%;
     left: 0;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 150vh;
     width: 100%;
   }
   .logo {
@@ -140,45 +400,36 @@ body {
   .profile-image {
     width: 100%; /* Increase the width of the container */
   }
-  
-  .profile-image img {
-    width: 100%; /* Increase the width of the image itself */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px 10px 0 0;
-    object-fit: cover; /* Ensure the image covers the container without distortion */
-  }
-
-  
 
   .profile-info h1 {
-    font-size: 22px; /* Adjusted font size */
+    font-size: 30px; /* Adjusted font size */
   }
 
-  .profile-info h2 {
-    font-size: 18px; /* Adjusted font size */
-  }
-
-  .details p {
-    font-size: 14px; /* Adjusted font size */
-  }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 668px) {
 
   .card-container {
     display: flex;
     position: absolute;
-    top: 60%;
+    top: 30%;
     left: 0;
     justify-content: center;
     align-items: center;
-    height: 70%;
+    height: 80%;
     width: 100%;
+  }
+  .profile-info{
+    width: 100%;
+  }
+  .profile-card{
+    height: auto;
+    width: 99%;
   }
   
 }
-@media (max-width: 550px) {
-  
+@media (max-width: 659px) {
+
   .card-container {
     display: flex;
     position: absolute;
@@ -189,6 +440,36 @@ body {
     height: 80%;
     width: 100%;
   }
+  .profile-info{
+    width: 100%;
+  }
+  .profile-card{
+    height: auto;
+    width: 99%;
+  }
+  
+}
+@media (max-width: 550px) {
+  
+  .card-container {
+    display: flex;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    width: 100%;
+  }
+  .profile-image{
+    width: 100%;
+  }
+  .profile-card {
+    display: block; /* Stack the image and info on smaller screens */
+    height: auto;
+    width: 75%;
+    margin-bottom: 10%;
+  }
 
 }
 @media (max-width: 480px) {
@@ -198,33 +479,52 @@ body {
   .card-container {
     display: flex;
     position: absolute;
-    top:35%;
+    top:25%;
     margin-top: 0%;
     justify-content: center;
     align-items: center;
     height: 80%;
     width: 100%;
   }
-  .profile-info h2 {
-    font-size: 16px; /* Further adjusted for smaller screens */
-  }
-
-  .details p {
-    font-size: 12px; /* Further adjusted for smaller screens */
-  }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 450px) {
+  .profile-info h1 {
+    font-size: 20px; /* Further adjusted for smaller screens */
+  }
+  .card-container {
+    display: flex;
+    top: 2%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: 110%;
+    width: 100%;
+  }
+  .profile-info{
+    width: 100%;
+  }
+  .profile-card{
+    height: auto;
+
+  }
+  
+}
+
+@media (max-width: 376px) {
   .card-container {
     display: flex;
     position: absolute;
-    top: 25%;
+    top: 3%;
     bottom: 5%;
     left: 0;
     justify-content: center;
     align-items: center;
-    height: 80%;
+    height: 120%;
     width: 100%;
+  }
+  .profile-card{
+    height: auto;
   }
   .profile-info {
     width: 100%;
@@ -236,14 +536,55 @@ body {
   .profile-info div{
     margin: 2%;
   }
-  .profile-info h1{
-    font-size: 22px;
+  
+}
+
+@media (max-width: 345px) {
+  .card-container {
+    display: flex;
+    position: absolute;
+    top: 3%;
+    bottom: 5%;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 100%;
   }
-  .profile-info .sideInfo{
-    width: 80%;
+  .profile-card{
+    height: auto;
   }
-  .profile-info .sideInfo h2 {
-    font-size: 16px; /* Further adjusted for smaller screens */
+  .profile-info {
+    width: 75%;
+    text-align: left;
+    display: block;
+
   }
+  
+  
+}
+
+@media (max-width: 321px) {
+  .card-container {
+    display: flex;
+    position: absolute;
+    top: 3%;
+    bottom: 5%;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 120%;
+    width: 100%;
+  }
+  .profile-card{
+    height: auto;
+  }
+  .profile-info {
+    width: 75%;
+    text-align: left;
+    display: block;
+
+  }
+  
   
 }
