@@ -382,13 +382,8 @@ body {
   }
   .card-container {
     display: flex;
-<<<<<<< HEAD
     position: absolute;
     top: 0%;
-=======
-    position: relative;
-    margin: 5% 0;
->>>>>>> c9be555e23e2be82f8d072c2a01ce85f2874ec96
     left: 0;
     justify-content: center;
     align-items: center;
@@ -426,37 +421,20 @@ body {
 
   .card-container {
     display: flex;
-<<<<<<< HEAD
     position: absolute;
     top: 30%;
-=======
-    position: relative;
-    top: 60%;
->>>>>>> c9be555e23e2be82f8d072c2a01ce85f2874ec96
     left: 0;
     justify-content: center;
     align-items: center;
     height: 80%;
     width: 100%;
   }
-<<<<<<< HEAD
   .profile-info{
     width: 100%;
   }
   .profile-card{
     height: auto;
     width: 99%;
-=======
-  .profile-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    display: block;
-    width: 80%; /* Now covers 80% of the page */
-    max-width: 100%;
-    margin-top: 90%;
-    height: 100%;
->>>>>>> c9be555e23e2be82f8d072c2a01ce85f2874ec96
   }
   
 }
@@ -471,7 +449,6 @@ body {
     height: 80%;
     width: 100%;
   }
-<<<<<<< HEAD
   .profile-info{
     width: 100%;
   }
@@ -501,17 +478,6 @@ body {
     height: auto;
     width: 75%;
     margin-bottom: 10%;
-=======
-  .profile-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    display: block;
-    width: 80%; /* Now covers 80% of the page */
-    max-width: 100%;
-    margin-top: 80%;
-    height: 100%;
->>>>>>> c9be555e23e2be82f8d072c2a01ce85f2874ec96
   }
 
 }
@@ -521,38 +487,14 @@ body {
   }
   .card-container {
     display: flex;
-<<<<<<< HEAD
     position: absolute;
     top:25%;
     margin-top: 0%;
-=======
-    position: relative;
->>>>>>> c9be555e23e2be82f8d072c2a01ce85f2874ec96
     justify-content: center;
     align-items: center;
     height: 80%;
     width: 100%;
   }
-<<<<<<< HEAD
-=======
-  .profile-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    display: block;
-    width: 80%; /* Now covers 80% of the page */
-    max-width: 100%;
-    margin-top: 55%;
-    height: 100%;
-  }
-  .profile-info h2 {
-    font-size: 16px; /* Further adjusted for smaller screens */
-  }
-
-  .details p {
-    font-size: 12px; /* Further adjusted for smaller screens */
-  }
->>>>>>> c9be555e23e2be82f8d072c2a01ce85f2874ec96
 }
 
 @media (max-width: 450px) {
@@ -581,13 +523,8 @@ body {
 @media (max-width: 376px) {
   .card-container {
     display: flex;
-<<<<<<< HEAD
     position: absolute;
     top: 3%;
-=======
-    position: relative;
-    top: 40%;
->>>>>>> c9be555e23e2be82f8d072c2a01ce85f2874ec96
     bottom: 5%;
     left: 0;
     justify-content: center;
@@ -595,20 +532,8 @@ body {
     height: 120%;
     width: 100%;
   }
-<<<<<<< HEAD
   .profile-card{
     height: auto;
-=======
-  .profile-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    display: block;
-    width: 80%; /* Now covers 80% of the page */
-    max-width: 100%;
-    margin-top: 15%;
-    height: 60%;
->>>>>>> c9be555e23e2be82f8d072c2a01ce85f2874ec96
   }
   .profile-info {
     width: 100%;
