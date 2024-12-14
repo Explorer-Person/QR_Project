@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -7,15 +6,14 @@ body {
   justify-content: center;
   align-items: center;
   height: 175vh;
-  margin-bottom: 5%;
 }
 
 .card-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 
 .profile-card {
@@ -23,82 +21,56 @@ body {
   border-radius: 10px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   display: flex;
+  flex-direction: row;
   overflow: hidden;
-  width: 80%; /* Now covers 80% of the page */
+  width: 80%;
   max-width: 100%;
-  height: 400px;
-  flex-direction: row; /* Default layout */
+  height: auto;
 }
 
 .profile-image {
-  width: 40%;
-  height: 100%;
+  width: 50%;
+  height: auto;
 }
-.profile-image .displayBox{
-  width: 100%;
-  height: 100%;
-}
-
 
 .profile-info {
-  width: 50%;
-  padding: 20px; /* Reduced padding for better responsiveness */
-  text-align: left;
+  flex: 1;
+  padding: 20px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 5%;
-  flex-grow: 1;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .profile-info h1 {
-  font-size: 28px; /* Adjusted font size */
+  font-size: 28px;
   margin: 0;
-  width: 50%; /* Full width on smaller screens */
 }
 
-.profile-info .sideInfo{
-  margin-top: 4%;
-  width: 80%;
+.profile-info .sideInfo {
+  margin-top: 10px;
 }
+
 .profile-info .sideInfo h2 {
-  width: 100%;
-  font-size: 18px; /* Adjusted font size */
+  font-size: 18px;
   color: #5a5a5a;
-  margin: 3px 1px;
+  margin: 3px 0;
 }
+
 .profile-info .sideInfo h4 {
-  width: 100%;
-  font-size: 14px; /* Slightly larger for better readability */
-  color: #2d6a4f; /* Dark green color for better contrast */
-  margin: 5px 0 25px; /* Adjusted margin for better spacing */
-  font-family: 'Arial', sans-serif; /* Modern, clean font */
-  font-weight: 600; /* Slightly bold for emphasis */
-  background: linear-gradient(to right, #2d6a4f, #4caf50, #81c784); /* Gradient from dark to light green */
-  -webkit-background-clip: text; /* Clipping the gradient to text */
-  -webkit-text-fill-color: transparent; /* Making text color transparent to show gradient */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-  text-transform: capitalize; /* Capitalizing text for consistency */
-}
-
-.details {
-
-  margin: 2%;
-  display: flex;
-  flex-wrap: wrap;
+  font-size: 14px;
+  color: #2d6a4f;
+  margin: 5px 0 15px;
+  font-weight: 600;
+  background: linear-gradient(to right, #2d6a4f, #4caf50, #81c784);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .details p {
-  width: 100%; /* Full width on smaller screens */
-  margin: 1% 0;
-  font-size: 16px; /* Adjusted font size */
+  margin: 5px 0;
+  font-size: 16px;
   color: #777;
-}
-
-.logo {
-  position: relative;
-  margin-left: 1%;
-  width: 40%; /* Full width on smaller screens */
-  height: auto; /* Keep aspect ratio */
 }
 
 .logo img {
@@ -106,494 +78,81 @@ body {
   height: auto;
 }
 
-/* Media Queries for responsiveness */
+/* Media Queries for Responsiveness */
 
-@media (max-width: 1280px) {
-
-  .card-container {
-    display: flex;
-    position: absolute;
-    top: 16%;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 70%;
-    width: 100%;
-  }
-  .profile-image {
-    width: 50%;
-    height: 100%;
-  }
-  
-}
-
-@media (max-width: 1025px) {
-
-  .card-container {
-    display: flex;
-    position: absolute;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-  }
-  .profile-image{
-    width: 100%;
-  }
+@media (max-width: 1024px) {
   .profile-card {
-    display: flex; /* Stack the image and info on smaller screens */
-    height: auto;
-    width: 95%;
-    margin-bottom: 25%;
-  }
-  .profile-info{
-    width: 45%;
-    padding-bottom: 5%;
-  }
-  .logo{
-    width: 100%;
-  }
-
-}
-
-@media (max-width: 936px) {
-
-  .card-container {
     display: flex;
-    position: absolute;
-    top: 3%;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 150%;
-    width: 100%;
-  }
-  .profile-image {
-    width: 130%;
-    height: 100%;
-  }
-  .profile-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    overflow: hidden;
-    width: 95%; /* Now covers 80% of the page */
-    max-width: 100%;
-    height: auto;
-    flex-direction: row; /* Default layout */
-  }
-  .profile-info{
-    width: 100%;
-  }
-  
-}
-
-@media (max-width: 913px) {
-
-  .card-container {
-    display: flex;
-    position: absolute;
-    top: 3%;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 70%;
-    width: 100%;
-  }
-  .profile-image {
-    width: 130%;
-    height: 100%;
-  }
-  .profile-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    overflow: hidden;
-    width: 95%; /* Now covers 80% of the page */
-    max-width: 100%;
-    height: auto;
-    flex-direction: row; /* Default layout */
-  }
-  .profile-info{
-    width: 100%;
-  }
-  
-}
-
-
-
-
-
-
-@media (max-width: 897px) {
-
-  .card-container {
-    display: flex;
-    position: absolute;
-    left: 0;
-    top: 25%;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-  }
-  .profile-image {
-    width: 100%;
-    height: 100%;
-  }
-  .profile-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    overflow: hidden;
-    width: 100%; /* Now covers 80% of the page */
-    max-width: 100%;
-    height: auto;
-    flex-direction: row; /* Default layout */
-  }
-  
-  
-}
-
-@media (max-width: 885px) {
-
-  .card-container {
-    display: flex;
-    position: absolute;
-    left: 0%;
-    justify-content: center;
-    align-items: center;
-    height: 120%;
-    width: 100%;
-  }
-  .profile-image {
-    width: 100%;
-    height: 100%;
-  }
-  .profile-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    width: 100%; /* Now covers 80% of the page */
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-
-
-@media (max-width: 855px) {
-
-  .card-container {
-    display: flex;
-    position: absolute;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 20%;
-    width: 100%;
-  }
-  .profile-image {
-    width: 140%;
-    height: 100%;
-  }
-  .profile-info{
-    width: 100%;
-  }
-  .profile-card{
-    display: flex;
-    height: auto;
     width: 90%;
+    height: auto;
   }
-  
-}
 
-@media (max-width: 845px) {
-
-  .card-container {
-    display: flex;
-    position: absolute;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-  }
   .profile-image {
-    width: 140%;
-    height: 100%;
-  }
-  .profile-info{
     width: 100%;
   }
-  .profile-card{
-    display: flex;
-    height: auto;
-    width: 90%;
-  }
-  
-}
 
-
-@media (max-width: 821px) {
-
-  .card-container {
-    display: flex;
-    position: absolute;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 50%;
-    width: 100%;
-  }
-  .profile-image {
-    width: 160%;
-    height: 100%;
-  }
-  .profile-info{
-    width: 100%;
-  }
-  .profile-card{
-    display: flex;
-    height: auto;
-    width: 90%;
-  }
-  
-}
-
-@media (max-width: 769px) {
-  .profile-card {
-    display: flex; /* Stack the image and info on smaller screens */
-    height: auto;
-    width: 90%;
-  }
   .profile-info {
     width: 100%;
-    text-align: left;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5%;
-    flex-grow: 1;
+    padding: 10px;
   }
-  .card-container {
-    display: flex;
-    position: absolute;
-    top: 0%;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 150vh;
-    width: 100%;
-  }
+}
+@media (max-width: 768px) {
   .profile-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    display: block;
-    width: 80%; /* Now covers 80% of the page */
-    max-width: 100%;
-    margin-top: 100%;
-    height: 100%;
+    display: flex;
+    width: calc(100% - 20px); /* Subtracting margins for spacing */
+    height: auto; /* Let the height adjust dynamically */
+    margin: 10px; /* Adds small margins around the card */
+    box-sizing: border-box; /* Ensures padding and border are included in width/height */
   }
-  .logo {
-    position: relative;
-    margin-left: 1%;
-    width: 100%; /* Full width on smaller screens */
-    height: auto; /* Keep aspect ratio */
-  }
-  
-  .profile-image {
-    width: 100%; /* Increase the width of the container */
+
+  .card-container {
+    height: auto; /* Allow container height to adjust dynamically */
+    padding: 10px; /* Adds inner spacing to the container */
   }
 
   .profile-info h1 {
-    font-size: 30px; /* Adjusted font size */
+    font-size: 24px;
   }
 
+  .profile-info .sideInfo h2 {
+    font-size: 16px;
+  }
+
+  .profile-info .sideInfo h4 {
+    font-size: 12px;
+  }
+
+  .details p {
+    font-size: 14px;
+  }
 }
 
-@media (max-width: 668px) {
 
-  .card-container {
-    display: flex;
-    position: absolute;
-    top: 30%;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
-    width: 100%;
-  }
-  .profile-info{
-    width: 100%;
-  }
-  .profile-card{
-    height: auto;
-    width: 99%;
-  }
-  
-}
-@media (max-width: 659px) {
-
-  .card-container {
-    display: flex;
-    position: relative;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
-    width: 100%;
-  }
-  .profile-info{
-    width: 100%;
-  }
-  .profile-card{
-    height: auto;
-    width: 99%;
-  }
-  
-}
-@media (max-width: 550px) {
-  
-  .card-container {
-    display: flex;
-    position: absolute;
-    top: 20%;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 120vh;
-    width: 100%;
-  }
-  .profile-image{
-    width: 100%;
-  }
+@media (max-width: 500px) {
+  *{overflow: hidden;}
   .profile-card {
-    display: block; /* Stack the image and info on smaller screens */
-    height: auto;
-    width: 75%;
-    margin-bottom: 10%;
+    display: block;
+    width: 60%; /* Slightly reduce box width */
+    padding: 10px; /* Add some inner padding for better spacing */
+    box-sizing: border-box; /* Ensures padding doesn't affect width calculation */
   }
 
-}
-@media (max-width: 480px) {
+  .profile-info {
+    padding: 5px; /* Maintain padding for inner content */
+  }
+
   .profile-info h1 {
-    font-size: 20px; /* Further adjusted for smaller screens */
+    font-size: 18px; /* Decrease font size for smaller screens */
   }
-  .card-container {
-    display: flex;
-    position: absolute;
-    top:25%;
-    margin-top: 0%;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
-    width: 100%;
+
+  .profile-info .sideInfo h2,
+  .profile-info .sideInfo h4 {
+    font-size: 12px; /* Further decrease font size for side information */
+  }
+
+  .details p {
+    font-size: 12px;
+    line-height: 1.4; /* Ensure good readability with reduced size */
   }
 }
 
-@media (max-width: 450px) {
-  .profile-info h1 {
-    font-size: 20px; /* Further adjusted for smaller screens */
-  }
-  .card-container {
-    display: flex;
-    top: 2%;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    height: 110%;
-    width: 100%;
-  }
-  .profile-info{
-    width: 100%;
-  }
-  .profile-card{
-    height: auto;
-
-  }
-  
-}
-
-@media (max-width: 376px) {
-  .card-container {
-    display: flex;
-    position: absolute;
-    top: 3%;
-    bottom: 5%;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 120%;
-    width: 100%;
-  }
-  .profile-card{
-    height: auto;
-  }
-  .profile-info {
-    width: 100%;
-    text-align: left;
-    display: block;
-    flex-wrap: wrap;
-    flex-grow: 1;
-  }
-  .profile-info div{
-    margin: 2%;
-  }
-  
-}
-
-@media (max-width: 345px) {
-  .card-container {
-    display: flex;
-    position: absolute;
-    top: 3%;
-    bottom: 5%;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 90%;
-    width: 100%;
-  }
-  .profile-card{
-    height: auto;
-  }
-  .profile-info {
-    width: 75%;
-    text-align: left;
-    display: block;
-
-  }
-  
-  
-}
-
-@media (max-width: 321px) {
-  .card-container {
-    display: flex;
-    position: absolute;
-    top: 3%;
-    bottom: 5%;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    height: 120%;
-    width: 100%;
-  }
-  .profile-card{
-    height: auto;
-  }
-  .profile-info {
-    width: 75%;
-    text-align: left;
-    display: block;
-
-  }
-  
-  
-}

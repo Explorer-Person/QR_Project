@@ -25,6 +25,7 @@ const useFormHook = () => {
           ...userInfo,
           info: {
             ...userInfo.info,
+            targetUrl: window.location.origin,
             [name]: value,
           },
         })

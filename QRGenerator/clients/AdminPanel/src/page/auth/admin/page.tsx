@@ -93,12 +93,12 @@ const AdminPage = () => {
           onChange={handleChange}
         />
         {
-          adminInfo.info.role === 'root' ? <input
+          processInfo === 'updateOne' ? <input
             type="role"
             name='role'
             placeholder="Role"
             value={adminInfo.info.role}
-            readOnly
+            readOnly={true}
           /> :
             <select
               name='role'

@@ -3,6 +3,7 @@ const { v4: uuidv4 } = require("uuid");
 const { userModel } = require("@models");
 const { qrCreator } = require("@utils");
 const { json } = require("express");
+const { deleteFile } = require("../../utils");
 
 
 class UserQueries {
@@ -68,9 +69,15 @@ class UserQueries {
     const query = "DELETE FROM users WHERE id=?";
     const params = [id];
 
-    await executeQuery(query, params);
+    const user = await this.getOne(id)
+    const deleteImg = await deleteFile('uploads', JSON.parse(user[0].img).fileName)
+    const deleteQr = await deleteFile('qrs', user[0].qrPath.split("\\")[user[0].qrPath.split("\\").length - 1])
 
-    return await this.getAll(); // Ensure `this.getAll()` is accessible
+    if(deleteImg && deleteQr){
+      await executeQuery(query, params);
+      return await this.getAll(); // Ensure `this.getAll()` is accessible
+    }
+
   };
   updateOne = async (userInfo) => {
     const dateData = userInfo.info.bornDate.split('T')[0]
@@ -104,10 +111,14 @@ class UserQueries {
       userInfo.id,
     ];
 
-    await executeQuery(query, params);
 
-    return this.getAll();
+    const user = await this.getOne(userInfo.id)
+    const deleteImg = await deleteFile('uploads', JSON.parse(user[0].img).fileName)
 
+    if(deleteImg){
+      await executeQuery(query, params);
+      return this.getAll();
+    }
   };
 }
 

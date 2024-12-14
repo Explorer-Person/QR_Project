@@ -161,7 +161,8 @@ const InputBox = () => {
             name='targetUrl'
             onChange={handleChange}
             placeholder="Enter the target URL..."
-            className="form-control"       
+            className="form-control"    
+            readOnly={true}
           ></input>
         </div>
 

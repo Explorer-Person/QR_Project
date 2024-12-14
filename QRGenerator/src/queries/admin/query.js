@@ -95,8 +95,7 @@ class AdminQuery {
     const query = `UPDATE admins SET
            username=?,
            ${passwordQueryPart}
-           email=?,
-           role=?
+           email=?
            WHERE id=?`;
 
     const existingUser = await this.getOne(adminInfo.id);
@@ -118,7 +117,6 @@ class AdminQuery {
       adminInfo.info.username,
       ...(adminInfo.info.password ? [updatedPassword] : []),
       adminInfo.info.email,
-      adminInfo.info.role,
       adminInfo.id,
     ];
 
