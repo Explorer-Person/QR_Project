@@ -23,10 +23,14 @@ let sess = {
     return genuuid();
   },
   secret: process.env.SESSION_SECRET,
-  resave: false,
+  resave: true,
   saveUninitialized: true,
+<<<<<<< HEAD
   store: store,
   proxy: true,
+=======
+  store: store
+>>>>>>> c9be555e23e2be82f8d072c2a01ce85f2874ec96
 };
 
 if(process.env.NODE_ENV === 'production' ){

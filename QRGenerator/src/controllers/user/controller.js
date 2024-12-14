@@ -19,7 +19,7 @@ exports.addUser = async (req, res, next) => {
       ...jsonData,
       file: file,
     };
-    console.log(data, "dataaaaaaaaaaa");
+    
 
     if (!data.info.targetUrl) {
       return sendResponse(

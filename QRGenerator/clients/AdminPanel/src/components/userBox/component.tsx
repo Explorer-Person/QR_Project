@@ -84,8 +84,8 @@ const UserBox = ({ userInfo }: UserBoxProps) => {
                             <p className='info'>{userInfo.info.tcNumber}</p>
                         </div>
                         <div>
-                            <p className='label'>Short URL:</p>
-                            <p className='info'> <a href={userInfo.info.targetUrl}>{userInfo.info.shortUrl}</a></p>
+                            <p className='label'>URL Direction:</p>
+                            <p className='info'> <a href={userInfo.info.targetUrl}>{userInfo.info.name} {userInfo.info.surname} - Click Here</a></p>
                         </div>
                     </div>
                 )}

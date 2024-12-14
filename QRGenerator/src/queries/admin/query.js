@@ -20,7 +20,7 @@ class AdminQuery {
     await adminModel();
 
     const id = uuidv4();
-
+    
     const query = `INSERT INTO admins 
       (username, password, email, role, id)
       VALUES (?, ?, ?, ?, ?)`;
@@ -37,9 +37,11 @@ class AdminQuery {
     if (adminInfo.info.role) {
       const existingAdmin = await this.getAll();
       const rootAdmin = existingAdmin.find((admin) => admin.role === "root");
-      console.log(rootAdmin);
-      if (rootAdmin.role === adminInfo.info.role) {
-        return "Root User Already Exists...";
+     
+      if(rootAdmin){
+       if (rootAdmin.role === adminInfo.info.role) {
+         return "Root User Already Exists...";
+       }
       }
     }
 
@@ -55,7 +57,7 @@ class AdminQuery {
   };
   deleteOne = async (id) => {
     const existingAdmin = await this.getOne(id);
-    console.log(existingAdmin);
+   
     const existingRole = existingAdmin[0].role;
     if (existingRole === "root") {
       return "Root User Cant Removable...";
@@ -70,7 +72,7 @@ class AdminQuery {
 
   login = async (loginInfo) => {
     const existingAdmins = await this.getAll();
-    console.log(existingAdmins);
+   
     const foundedAdmin = existingAdmins.find(
       (admin) => admin.username === loginInfo.username
     );

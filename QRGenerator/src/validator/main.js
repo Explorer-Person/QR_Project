@@ -48,8 +48,11 @@ const validateUser = [
     body("data.info.targetUrl")
       .notEmpty()
       .withMessage("Target URL must be provided")
+<<<<<<< HEAD
       // .isURL()
       // .withMessage("Invalid URL format for Target URL"),
+=======
+>>>>>>> c9be555e23e2be82f8d072c2a01ce85f2874ec96
   
     // Additional validations can be added as needed
   ];

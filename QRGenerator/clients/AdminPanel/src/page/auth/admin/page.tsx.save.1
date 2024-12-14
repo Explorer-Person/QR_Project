@@ -48,6 +48,14 @@ const AdminPage = () => {
     color: `white`
   };
 
+console.log(
+dataFetched,
+status,
+loading,
+adminInfo,
+adminInfoArray
+)
+
 
   const navigate = useNavigate();
   const toUserManagement = () => {
@@ -61,7 +69,6 @@ const AdminPage = () => {
     return <LoadingPage />;
   }
   if (status === false && process === 'authorization' && adminRoleInfo !== 'root') {
-  
     return <NotAuthPage />;
   }
   return (
