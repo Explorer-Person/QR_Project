@@ -113,12 +113,15 @@ class UserQueries {
 
 
     const user = await this.getOne(userInfo.id)
-    const deleteImg = await deleteFile('uploads', JSON.parse(user[0].img).fileName)
-
-    if(deleteImg){
-      await executeQuery(query, params);
-      return this.getAll();
+    
+    if(JSON.parse(userInfo.file).fileName !== JSON.parse(user[0].img).fileName){
+      await deleteFile('uploads', JSON.parse(user[0].img).fileName)
     }
+
+    
+    await executeQuery(query, params);
+    return this.getAll();
+    
   };
 }
 

@@ -8,7 +8,6 @@ middleware.use(async (req, res, next) => {
   const filePath = req.file.path;
   try {
     const media = await jimp.read(filePath);
-
     // Set the target dimensions for image resizing
     const width = 1000; // Change this to your desired width
     const height = 1200; // Change this to your desired height

@@ -8,7 +8,7 @@ const middleware = express();
 const storage = multer.diskStorage({
   destination: './src/uploads/', // Folder to save images
   filename: (req, file, cb) => {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    cb(null, file.fieldname + '-' + file.originalname.trim().split(' ').join('-'));
   }
 });
 
@@ -38,6 +38,7 @@ const { sendResponse } = require("@handlers");
 
 middleware.use((req, res, next) => {
   upload(req, res, (err) => {
+    
     if (err) {
        if (err.code === 'LIMIT_FILE_SIZE') {
         return sendResponse(
